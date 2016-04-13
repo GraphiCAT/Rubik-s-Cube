@@ -1,0 +1,31 @@
+# depslib dependency file v1.0
+1460560404 source:f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\cell.cpp
+	"Cell.h"
+
+1460560419 f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\cell.h
+	"Point3D.h"
+
+1460560456 f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\point3d.h
+
+1446667744 source:f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\main.cpp
+	<GLUT/glut.h>
+	<GL/glut.h>
+	<stdlib.h>
+
+1426324528 c:\tdm-gcc-64\freeglut\include\gl\glut.h
+	"freeglut_std.h"
+
+1426324528 c:\tdm-gcc-64\freeglut\include\gl\freeglut_std.h
+	<windows.h>
+	<EGL/egl.h>
+	<GLES/gl.h>
+	<GLES2/gl2.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1460560221 source:f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\point3d.cpp
+	"Point3D.h"
+
