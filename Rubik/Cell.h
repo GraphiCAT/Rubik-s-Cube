@@ -2,12 +2,12 @@
 #define Cell_H
 
 #include "Point3D.h"
-#define RED = 0;
-#define GREEN = 1;
-#define WHITE = 2;
-#define BLUE = 3;
-#define ORANGE = 4;
-#define YELLOW = 5;
+#define RED 0
+#define GREEN 1
+#define WHITE 2
+#define BLUE 3
+#define ORANGE 4
+#define YELLOW 5
 
 
 class Cell
@@ -23,15 +23,15 @@ class Cell
         void setLocation(Point3D _location);
         Point3D getNormal();
         void setNormal(Point3D _normal);
+        void drawCell();
+        void setColor();
+        int getFace();
 
 
     private :
         int color;
         Point3D location;
         Point3D normal;
-
-
-
 };
 
 #endif // Cell_H

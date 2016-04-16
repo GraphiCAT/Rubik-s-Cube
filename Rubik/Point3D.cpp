@@ -13,3 +13,7 @@ Point3D::Point3D(const Point3D& p){
 }
 
 Point3D::~Point3D(){}
+
+bool Point3D::isEquals(Point3D p){
+    return (x == p.getX())&&(y == p.getY())&&(z == p.getZ());
+}

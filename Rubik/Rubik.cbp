@@ -42,6 +42,12 @@
 			<Add library="gdi32" />
 			<Add directory="C:/TDM-GCC-64/freeglut/lib" />
 		</Linker>
+		<Unit filename="Cell.cpp" />
+		<Unit filename="Cell.h" />
+		<Unit filename="Cubelet.cpp" />
+		<Unit filename="Cubelet.h" />
+		<Unit filename="Point3D.cpp" />
+		<Unit filename="Point3D.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

@@ -1,16 +1,19 @@
 # depslib dependency file v1.0
-1460560404 source:f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\cell.cpp
+1460792234 source:f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\cell.cpp
 	"Cell.h"
+	<windows.h>
+	<GL/glut.h>
 
-1460560419 f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\cell.h
+1460789701 f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\cell.h
 	"Point3D.h"
 
-1460560456 f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\point3d.h
+1460790974 f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\point3d.h
 
-1446667744 source:f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\main.cpp
-	<GLUT/glut.h>
+1460779989 source:f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\main.cpp
+	<cstdlib>
+	<windows.h>
 	<GL/glut.h>
-	<stdlib.h>
+	"DrawHandler.h"
 
 1426324528 c:\tdm-gcc-64\freeglut\include\gl\glut.h
 	"freeglut_std.h"
@@ -26,6 +29,34 @@
 	<GL/glu.h>
 	<stdlib.h>
 
-1460560221 source:f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\point3d.cpp
+1460783967 source:f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\point3d.cpp
 	"Point3D.h"
+
+1460780492 source:f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\cubelet.cpp
+	"Cubelet.h"
+	<windows.h>
+	<GL/glut.h>
+
+1460780325 f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\cubelet.h
+	"Point3D.h"
+
+1460794778 source:f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\drawhandler.cpp
+	"DrawHandler.h"
+	"Point3D.h"
+	"Cell.h"
+	"Cube.h"
+
+1460779138 f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\drawhandler.h
+	<iostream>
+	<windows.h>
+	<GL/glut.h>
+
+1460793292 source:f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\cube.cpp
+	"Cube.h"
+	<windows.h>
+	<GL/glut.h>
+
+1460794050 f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\cube.h
+	"Point3D.h"
+	"Cell.h"
 
