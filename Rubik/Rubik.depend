@@ -9,7 +9,7 @@
 
 1460790974 f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\point3d.h
 
-1460779989 source:f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\main.cpp
+1460797893 source:f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\main.cpp
 	<cstdlib>
 	<windows.h>
 	<GL/glut.h>
@@ -40,7 +40,7 @@
 1460780325 f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\cubelet.h
 	"Point3D.h"
 
-1460794778 source:f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\drawhandler.cpp
+1460800033 source:f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\drawhandler.cpp
 	"DrawHandler.h"
 	"Point3D.h"
 	"Cell.h"
@@ -51,12 +51,14 @@
 	<windows.h>
 	<GL/glut.h>
 
-1460793292 source:f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\cube.cpp
+1460799687 source:f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\cube.cpp
 	"Cube.h"
 	<windows.h>
 	<GL/glut.h>
+	<iostream>
+	<vector>
 
-1460794050 f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\cube.h
+1460798705 f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\cube.h
 	"Point3D.h"
 	"Cell.h"
 

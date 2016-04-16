@@ -16,6 +16,12 @@ class Cube
         void drawCube();
         void rotateAll();
         void rotateBottom();
+        void rotateTop();
+        void rotateRight();
+        void rotateLeft();
+        void rotateFront();
+        void rotateBack();
+
 
     private :
         Cell surface[54];

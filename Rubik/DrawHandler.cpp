@@ -5,6 +5,7 @@
 
 const int TRIANGLE = 0;
 const int TRIANGLE_POINT = 1;
+Cube rubiks;
 
 
 int refreshMills = 15;        // refresh interval in milliseconds [NEW]
@@ -38,10 +39,7 @@ void displayCube() {
    glLoadIdentity();                 // Reset the model-view matrix
    glTranslatef(0.0f, 0.0f, -20.0f);  // Move right and into the screen
 
-    Cube cube1;
-    cube1.rotateAll();
-    //cube1.rotateBottom();
-
+    rubiks.rotateBack();
 
    glFlush();
 }
