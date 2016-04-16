@@ -44,8 +44,12 @@
 		</Linker>
 		<Unit filename="Cell.cpp" />
 		<Unit filename="Cell.h" />
+		<Unit filename="Cube.cpp" />
+		<Unit filename="Cube.h" />
 		<Unit filename="Cubelet.cpp" />
 		<Unit filename="Cubelet.h" />
+		<Unit filename="DrawHandler.cpp" />
+		<Unit filename="DrawHandler.h" />
 		<Unit filename="Point3D.cpp" />
 		<Unit filename="Point3D.h" />
 		<Unit filename="main.cpp" />
