@@ -33,19 +33,23 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add directory="C:/TDM-GCC-64/freeglut/include" />
+			<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/include" />
 		</Compiler>
 		<Linker>
-			<Add library="glut32" />
+			<Add library="freeglut" />
 			<Add library="opengl32" />
 			<Add library="glu32" />
 			<Add library="winmm" />
 			<Add library="gdi32" />
 			<Add directory="C:/TDM-GCC-64/freeglut/lib" />
+			<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/lib" />
 		</Linker>
 		<Unit filename="Cell.cpp" />
 		<Unit filename="Cell.h" />
 		<Unit filename="Cube.cpp" />
 		<Unit filename="Cube.h" />
+		<Unit filename="CubeHandler.cpp" />
+		<Unit filename="CubeHandler.h" />
 		<Unit filename="Cubelet.cpp" />
 		<Unit filename="Cubelet.h" />
 		<Unit filename="DrawHandler.cpp" />

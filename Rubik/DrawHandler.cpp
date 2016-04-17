@@ -7,9 +7,25 @@ const int TRIANGLE = 0;
 const int TRIANGLE_POINT = 1;
 Cube rubiks;
 
+#define CLOCKWISE 0
+#define COUNTER_CLOCKWISE -1
+#define TOP 1
+#define BOTTOM 2
+#define LEFT 3
+#define RIGHT 4
+#define BACK 5
+#define FRONT 6
+#define MIDDLEX 7
+
+
+#include <vector>
+using namespace std;
+
 
 int refreshMills = 15;        // refresh interval in milliseconds [NEW]
 int iteration = 1;
+float angle = 0.0f;
+int direction = CLOCKWISE;
 
 /* Initialize OpenGL Graphics */
 void initGL() {
@@ -34,18 +50,47 @@ void init()
 void displayCube() {
    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear color and depth buffers
    glMatrixMode(GL_MODELVIEW);     // To operate on model-view matrix
-
-   // Render a color-cube consisting of 6 quads with different colors
-   glLoadIdentity();                 // Reset the model-view matrix
-   glTranslatef(0.0f, 0.0f, -20.0f);  // Move right and into the screen
-
-    rubiks.rotateBack();
-
+   rubiks.resetCube();
+   rubiks.drawCube();
    glFlush();
 }
 
+void keyPressed (unsigned char key, int x, int y) {
+  Sleep(100);
+  if (key=='b') {
+    rubiks.handleRotate(BOTTOM,direction);
+  } else if (key=='f') {
+    rubiks.handleRotate(FRONT,direction);
+  } else if (key=='x') {
+    rubiks.handleRotate(MIDDLEX,direction);
+  } else if (key=='t') {
+    rubiks.handleRotate(TOP,direction);
+  } else if (key=='c') {
+    toggleDirection();
+  }
+}
+
+void toggleDirection() {
+  if (direction==CLOCKWISE)
+    direction = COUNTER_CLOCKWISE;
+  else
+    direction = CLOCKWISE;
+}
+
+
+void mouse(int btn, int state, int x, int y)
+  {
+    if (state == GLUT_DOWN)
+    {
+      if (btn == GLUT_LEFT_BUTTON);
+
+      else if (btn == GLUT_RIGHT_BUTTON);
+
+  }
+}
 
 /* Called back when timer expired [NEW] */
+
 void timer(int value) {
    glutPostRedisplay();      // Post re-paint request to activate display()
    glutTimerFunc(refreshMills, timer, 0); // next timer call milliseconds later
@@ -189,4 +234,3 @@ void printGoodbye() {
    std::cout << std::endl;
    std::cout << "                         ====== Bye-bye! :'( ======                         " << std::endl;
 }
-
