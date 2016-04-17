@@ -119,17 +119,6 @@ void triangle( point2 a, point2 b, point2 c)
         green = 0;
         blue = 81.0/255.0;
     }
-
-    /* if (red > 0 && blue < 0.25) {
-        red = red - 0.25;
-        green = green + 0.25;
-    } else if (green > 0 && red < 0.25) {
-        green = green - 0.25;
-        blue = blue + 0.25;
-    } else if (blue > 0 && green < 0.25) {
-        blue = blue - 0.25;
-        red = red + 0.25;
-    } */
 }
 
 

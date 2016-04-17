@@ -14,7 +14,17 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="C:/TDM-GCC-64/freeglut/include" />
+					<Add directory="C:/MinGW/include" />
 				</Compiler>
+				<Linker>
+					<Add library="freeglut" />
+					<Add library="opengl32" />
+					<Add library="glu32" />
+					<Add library="winmm" />
+					<Add library="gdi32" />
+					<Add directory="C:/MinGW/include" />
+				</Linker>
 			</Target>
 			<Target title="Release">
 				<Option output="bin/Release/Rubik" prefix_auto="1" extension_auto="1" />
@@ -32,8 +42,12 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
+<<<<<<< HEAD
 			<Add directory="C:/TDM-GCC-64/freeglut/include" />
 			<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/include" />
+=======
+			<Add directory="C:/MinGW/include" />
+>>>>>>> 75994172269517a6704ba84ac7651df085ae6c03
 		</Compiler>
 		<Linker>
 			<Add library="freeglut" />
@@ -48,8 +62,17 @@
 		<Unit filename="Cell.h" />
 		<Unit filename="Cube.cpp" />
 		<Unit filename="Cube.h" />
+<<<<<<< HEAD
 		<Unit filename="CubeHandler.cpp" />
 		<Unit filename="CubeHandler.h" />
+=======
+<<<<<<< HEAD
+		<Unit filename="Cubelet..c">
+			<Option compilerVar="CC" />
+		</Unit>
+=======
+>>>>>>> 8e3c091a9f2c2d6994943c4ef0399d57b9a5b9da
+>>>>>>> 75994172269517a6704ba84ac7651df085ae6c03
 		<Unit filename="Cubelet.cpp" />
 		<Unit filename="Cubelet.h" />
 		<Unit filename="DrawHandler.cpp" />

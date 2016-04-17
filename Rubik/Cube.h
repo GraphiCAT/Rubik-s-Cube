@@ -31,7 +31,6 @@ class Cube
 
     private :
         Cell surface[54];
-        int color[54];
 };
 
 #endif // Cube_H

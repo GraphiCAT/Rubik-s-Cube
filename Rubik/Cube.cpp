@@ -21,26 +21,6 @@
 using namespace std;
 
 Cube::Cube() {
-    //Define Color
-    for (int i = 0; i < 9; i++) {
-        color[i] = WHITE;
-    }
-    for (int i = 9; i < 18; i++) {
-        color[i] = YELLOW;
-    }
-    for (int i = 18; i < 27; i++) {
-        color[i] = RED;
-    }
-    for (int i = 27; i < 36; i++) {
-        color[i] = ORANGE;
-    }
-    for (int i = 36; i < 45; i++) {
-        color[i] = BLUE;
-    }
-    for (int i = 45; i < 54; i++) {
-        color[i] = GREEN;
-    }
-
     Point3D top(0,-1,0);
     Point3D bottom(0,1,0);
     Point3D right(1,0,0);

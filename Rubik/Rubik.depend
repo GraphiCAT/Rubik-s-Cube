@@ -62,11 +62,16 @@
 	"Point3D.h"
 	"Cell.h"
 
+<<<<<<< HEAD
 1460796586 source:c:\users\asus x202e\documents\github\rubik-s-cube\rubik\cell.cpp
+=======
+1460796180 source:d:\tifani warnita\schools - college\itb\hmif itb\informatics engineering\6th semester\if3260 - computer graphics\assignments\rubik-s-cube\rubik\cell.cpp
+>>>>>>> 75994172269517a6704ba84ac7651df085ae6c03
 	"Cell.h"
 	<windows.h>
 	<GL/glut.h>
 
+<<<<<<< HEAD
 1460796586 c:\users\asus x202e\documents\github\rubik-s-cube\rubik\cell.h
 	"Point3D.h"
 
@@ -280,6 +285,17 @@
 	"freeglut_std.h"
 
 1460555511 c:\program files (x86)\codeblocks\mingw\include\gl\freeglut_std.h
+=======
+1460796180 d:\tifani warnita\schools - college\itb\hmif itb\informatics engineering\6th semester\if3260 - computer graphics\assignments\rubik-s-cube\rubik\cell.h
+	"Point3D.h"
+
+1460796180 d:\tifani warnita\schools - college\itb\hmif itb\informatics engineering\6th semester\if3260 - computer graphics\assignments\rubik-s-cube\rubik\point3d.h
+
+1426324528 c:\mingw\include\gl\glut.h
+	"freeglut_std.h"
+
+1426324528 c:\mingw\include\gl\freeglut_std.h
+>>>>>>> 75994172269517a6704ba84ac7651df085ae6c03
 	<windows.h>
 	<EGL/egl.h>
 	<GLES/gl.h>
@@ -290,6 +306,7 @@
 	<GL/glu.h>
 	<stdlib.h>
 
+<<<<<<< HEAD
 1301111164 c:\program files (x86)\codeblocks\mingw\include\gl\gl.h
 
 1301111164 c:\program files (x86)\codeblocks\mingw\include\gl\glu.h
@@ -310,31 +327,64 @@
 	<GL/glut.h>
 
 1460796587 source:c:\users\asus x202e\documents\github\rubik-s-cube\rubik\cubelet.cpp
+=======
+1460804080 source:d:\tifani warnita\schools - college\itb\hmif itb\informatics engineering\6th semester\if3260 - computer graphics\assignments\rubik-s-cube\rubik\cube.cpp
+	"Cube.h"
+	<windows.h>
+	<GL/glut.h>
+	<iostream>
+	<vector>
+
+1460804062 d:\tifani warnita\schools - college\itb\hmif itb\informatics engineering\6th semester\if3260 - computer graphics\assignments\rubik-s-cube\rubik\cube.h
+	"Point3D.h"
+	"Cell.h"
+
+1460796180 source:d:\tifani warnita\schools - college\itb\hmif itb\informatics engineering\6th semester\if3260 - computer graphics\assignments\rubik-s-cube\rubik\cubelet..c
+
+1460796180 source:d:\tifani warnita\schools - college\itb\hmif itb\informatics engineering\6th semester\if3260 - computer graphics\assignments\rubik-s-cube\rubik\cubelet.cpp
+>>>>>>> 75994172269517a6704ba84ac7651df085ae6c03
 	"Cubelet.h"
 	<windows.h>
 	<GL/glut.h>
 
+<<<<<<< HEAD
 1460796587 c:\users\asus x202e\documents\github\rubik-s-cube\rubik\cubelet.h
 	"Point3D.h"
 
 1460890259 source:c:\users\asus x202e\documents\github\rubik-s-cube\rubik\drawhandler.cpp
+=======
+1460796180 d:\tifani warnita\schools - college\itb\hmif itb\informatics engineering\6th semester\if3260 - computer graphics\assignments\rubik-s-cube\rubik\cubelet.h
+	"Point3D.h"
+
+1460805464 source:d:\tifani warnita\schools - college\itb\hmif itb\informatics engineering\6th semester\if3260 - computer graphics\assignments\rubik-s-cube\rubik\drawhandler.cpp
+>>>>>>> 75994172269517a6704ba84ac7651df085ae6c03
 	"DrawHandler.h"
 	"Point3D.h"
 	"Cell.h"
 	"Cube.h"
+<<<<<<< HEAD
 	<vector>
 
 1460889606 c:\users\asus x202e\documents\github\rubik-s-cube\rubik\drawhandler.h
+=======
+
+1460796180 d:\tifani warnita\schools - college\itb\hmif itb\informatics engineering\6th semester\if3260 - computer graphics\assignments\rubik-s-cube\rubik\drawhandler.h
+>>>>>>> 75994172269517a6704ba84ac7651df085ae6c03
 	<iostream>
 	<windows.h>
 	<GL/glut.h>
 
+<<<<<<< HEAD
 1460889426 source:c:\users\asus x202e\documents\github\rubik-s-cube\rubik\main.cpp
+=======
+1460804311 source:d:\tifani warnita\schools - college\itb\hmif itb\informatics engineering\6th semester\if3260 - computer graphics\assignments\rubik-s-cube\rubik\main.cpp
+>>>>>>> 75994172269517a6704ba84ac7651df085ae6c03
 	<cstdlib>
 	<windows.h>
 	<GL/glut.h>
 	"DrawHandler.h"
 
+<<<<<<< HEAD
 1460796587 source:c:\users\asus x202e\documents\github\rubik-s-cube\rubik\point3d.cpp
 	"Point3D.h"
 
@@ -343,3 +393,8 @@
 
 1460873831 c:\users\asus x202e\documents\github\rubik-s-cube\rubik\cubehandler.h
 
+=======
+1460796180 source:d:\tifani warnita\schools - college\itb\hmif itb\informatics engineering\6th semester\if3260 - computer graphics\assignments\rubik-s-cube\rubik\point3d.cpp
+	"Point3D.h"
+
+>>>>>>> 75994172269517a6704ba84ac7651df085ae6c03

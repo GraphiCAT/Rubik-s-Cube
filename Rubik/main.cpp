@@ -7,7 +7,7 @@
 #include "DrawHandler.h"
 
 /* Global variables */
-char title[] = "3D Cube";
+char title[] = "Rubix";
 GLfloat anglePyramid = 0.0f;  // Rotational angle for pyramid [NEW]
 int window_1, window_2;
 
@@ -29,14 +29,12 @@ int main(int argc, char** argv) {
            glutInitWindowSize(640, 480);
            glutInitWindowPosition(50, 50);
            window_1 = glutCreateWindow (argv[0]);
-           glutSetWindowTitle("Rubik's Cube");
+           glutSetWindowTitle(title);
            glutDisplayFunc(display_1);
            glutReshapeFunc(reshape_1);
            glutKeyboardFunc(keyPressed);
            glutMouseFunc(mouse);
            initGL();
-           //glutTimerFunc(0, timer, 0);
-           //display_1();
            glutMainLoop();
        }
    }
