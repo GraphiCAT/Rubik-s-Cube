@@ -56,9 +56,12 @@
 		<Unit filename="Cell.h" />
 		<Unit filename="Cube.cpp" />
 		<Unit filename="Cube.h" />
+<<<<<<< HEAD
 		<Unit filename="Cubelet..c">
 			<Option compilerVar="CC" />
 		</Unit>
+=======
+>>>>>>> 8e3c091a9f2c2d6994943c4ef0399d57b9a5b9da
 		<Unit filename="Cubelet.cpp" />
 		<Unit filename="Cubelet.h" />
 		<Unit filename="DrawHandler.cpp" />
