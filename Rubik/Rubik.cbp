@@ -42,10 +42,10 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
-			<Add directory="C:/TDM-GCC-64/freeglut/include" />
+			<Add directory="C:/MinGW/include" />
 		</Compiler>
 		<Linker>
-			<Add library="glut32" />
+			<Add library="freeglut" />
 			<Add library="opengl32" />
 			<Add library="glu32" />
 			<Add library="winmm" />
