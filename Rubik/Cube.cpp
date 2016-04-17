@@ -16,7 +16,9 @@
 #define MIDDLEX 7
 #define MIDDLEY 8
 #define MIDDLEZ 9
-#define ALL 10
+#define ALLX 10
+#define ALLY 11
+#define ALLZ 12
 
 using namespace std;
 
@@ -117,13 +119,64 @@ void Cube::drawCube(){
     }
 }
 
-void Cube::rotateAll() {
-/*    glRotatef(angleCube, 1.0f, 1.0f, 1.0f);  // Rotate about (1,1,1)-axis [NEW]
-    drawCube();
-    glutSwapBuffers();  // Swap the front and back frame buffers (double buffering)
+void Cube::rotateAll(int axis, int direction) {
+  float degrees_per_frame = 5.0f;
+  int frames = 45.0f/degrees_per_frame;
+  GLfloat angleCube = 0.0f;
 
-   angleCube -= 0.45f;*/
+  if (direction==CLOCKWISE) {
+    for (int i=0;i<=frames;i++) {
+      rotateByAxis(degrees_per_frame,axis);
+      Sleep(100);
+    }
+  } else {
+    for (int i=0;i<=frames;i++) {
+      rotateByAxis(angleCube,axis);
+      angleCube -= degrees_per_frame;
+      Sleep(100);
+    }
+  }
+
+    cout << view[0] << " " << view[1] << " " << view[2] << endl;
 }
+
+void Cube::rotateByAxis(GLfloat angle, int axis) {
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear color and depth buffers
+
+  switch (axis) {
+    case ALLX:
+      glRotatef(angle,1.0f,0.0f,0.0f);
+      break;
+    case ALLY:
+      glRotatef(angle,0.0f,1.0f,0.0f);
+      break;
+    case ALLZ:
+      glRotatef(angle,0.0f,0.0f,1.0f);
+      break;
+    default:
+      break;
+  }
+  drawCube();
+
+  glutSwapBuffers();
+}
+//
+// void Cube::setView(GLfloat deltaangle, int axis) {
+//   switch (axis) {
+//     case ALLX:
+//       view[0] += deltaangle;
+//       break;
+//     case ALLY:
+//       view[1] += deltaangle;
+//       break;
+//     case ALLZ:
+//       view[2] += deltaangle;
+//       break;
+//     default:
+//       break;
+//   }
+// }
+
 
 void Cube::handleRotate(int face, int direction) {
   float degrees_per_frame = 10.0f;
@@ -215,7 +268,7 @@ Point3D Cube::getRotationAxis(int face) {
 void Cube::rotateSlice(GLfloat angle, vector<int> rotate, Point3D axis) {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear color and depth buffers
 
-    resetCube();
+    glPushMatrix();
 
     //Draw cube unrotated
     for (int i = 0; i < 54; i++) {
@@ -224,7 +277,9 @@ void Cube::rotateSlice(GLfloat angle, vector<int> rotate, Point3D axis) {
         }
     }
 
-    resetCube();
+    glPopMatrix();
+
+    glPushMatrix();
     //Rotate around axis
     glRotatef(angle,(GLfloat)axis.getX(),(GLfloat)axis.getY(),(GLfloat)axis.getZ());
 
@@ -233,11 +288,8 @@ void Cube::rotateSlice(GLfloat angle, vector<int> rotate, Point3D axis) {
         surface[rotate.at(i)].drawCell();
     }
 
+    glPopMatrix();
+
     glutSwapBuffers();
 }
 
-void Cube::resetCube() {
-  glLoadIdentity();
-  glTranslatef(0.0f, 0.0f, -20.0f);
-  glRotatef(-45.0f,-1.0f,1.0f,0.0f);
-}

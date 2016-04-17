@@ -18,7 +18,9 @@ Cube rubiks;
 #define MIDDLEX 7
 #define MIDDLEY 8
 #define MIDDLEZ 9
-#define ALL 10
+#define ALLX 10
+#define ALLY 11
+#define ALLZ 12
 
 #include <vector>
 using namespace std;
@@ -37,6 +39,9 @@ void initGL() {
    glDepthFunc(GL_LEQUAL);    // Set the type of depth-test
    glShadeModel(GL_SMOOTH);   // Enable smooth shading
    glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);  // Nice perspective corrections
+   glMatrixMode(GL_MODELVIEW); 
+   glTranslatef(0.0f, 0.0f, -20.0f);
+   glRotatef(45.0f,-1.0f,1.0f,0.0f);
 }
 
 void init()
@@ -52,7 +57,6 @@ void init()
 void displayCube() {
    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear color and depth buffers
    glMatrixMode(GL_MODELVIEW);     // To operate on model-view matrix
-   rubiks.resetCube();
    rubiks.drawCube();
    glFlush();
 }
@@ -79,6 +83,14 @@ void keyPressed (unsigned char key, int x, int y) {
     case 'z': rubiks.handleRotate(MIDDLEZ,direction);
       break;
     case 'c': toggleDirection();
+      break;
+    case 'X': rubiks.rotateAll(ALLX,direction);
+      break;
+    case 'Y': rubiks.rotateAll(ALLY,direction);
+      break;
+    case 'Z': rubiks.rotateAll(ALLZ,direction);
+      break;
+    default:
       break;
   }
 }
