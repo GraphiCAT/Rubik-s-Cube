@@ -171,8 +171,16 @@ vector<int> Cube::getRotationVector(int face) {
       int arr[] = {45,46,47,48,49,50,51,52,53,33,34,35,24,25,26,6,7,8,15,16,17};
       return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
       } break;
-    case MIDDLEX: {
+    case MIDDLEY: {
       int arr[] = {48,49,50,39,40,41,28,31,34,19,22,25};
+      return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
+      } break;
+    case MIDDLEX: {
+      int arr[] = {1,4,7,10,13,16,37,40,43,46,49,52};
+      return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
+      } break;
+    case MIDDLEZ: {
+      int arr[] = {3,4,5,12,13,14,21,22,23,30,31,32};
       return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
       } break;
     default:
@@ -185,15 +193,17 @@ Point3D Cube::getRotationAxis(int face) {
   switch (face) {
     case BOTTOM:
     case TOP:
-    case MIDDLEX:
+    case MIDDLEY:
       return Point3D(0.0,1.0,0.0);
       break;
     case RIGHT:
     case LEFT:
+    case MIDDLEX:
       return Point3D(1.0,0.0,0.0);
       break;
     case BACK:
     case FRONT:
+    case MIDDLEZ:
       return Point3D(0.0,0.0,-1.0);
       break;
     default:

@@ -1,28 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-<<<<<<< HEAD
-	<File name="CubeHandler.cpp" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
-=======
-<<<<<<< HEAD
-	<File name="Cube.cpp" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Cube.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="4720" topLine="300" />
+			<Cursor1 position="491" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Cube.h" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="515" topLine="7" />
-=======
-	<File name="Cube.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
->>>>>>> 75994172269517a6704ba84ac7651df085ae6c03
+	<File name="CubeHandler.cpp" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="2894" topLine="96" />
 		</Cursor>
 	</File>
-	<File name="Cell.h" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="main.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="206" topLine="16" />
+			<Cursor1 position="868" topLine="10" />
 		</Cursor>
 	</File>
 	<File name="Cell.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -30,9 +21,19 @@
 			<Cursor1 position="1023" topLine="90" />
 		</Cursor>
 	</File>
-	<File name="Cube.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
+	<File name="DrawHandler.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="491" topLine="1" />
+			<Cursor1 position="673" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Cell.h" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="206" topLine="16" />
+		</Cursor>
+	</File>
+	<File name="Cube.cpp" open="1" top="1" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4971" topLine="127" />
 		</Cursor>
 	</File>
 	<File name="Cubelet.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -40,92 +41,24 @@
 			<Cursor1 position="3233" topLine="73" />
 		</Cursor>
 	</File>
-	<File name="Cubelet.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-<<<<<<< HEAD
-			<Cursor1 position="189" topLine="11" />
-		</Cursor>
-	</File>
 	<File name="DrawHandler.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1526" topLine="31" />
-		</Cursor>
-	</File>
-	<File name="main.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-=======
-			<Cursor1 position="189" topLine="0" />
->>>>>>> 8e3c091a9f2c2d6994943c4ef0399d57b9a5b9da
-		</Cursor>
-	</File>
-	<File name="Cubelet.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-<<<<<<< HEAD
-			<Cursor1 position="576" topLine="34" />
-		</Cursor>
-	</File>
-	<File name="Cubelet.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="323" topLine="11" />
-		</Cursor>
-	</File>
-	<File name="DrawHandler.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="946" topLine="30" />
-		</Cursor>
-	</File>
-	<File name="Point3D.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="149" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="Point3D.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-=======
-			<Cursor1 position="6803" topLine="151" />
-		</Cursor>
-	</File>
-	<File name="Cell.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
->>>>>>> 8e3c091a9f2c2d6994943c4ef0399d57b9a5b9da
->>>>>>> 75994172269517a6704ba84ac7651df085ae6c03
-		<Cursor>
-			<Cursor1 position="998" topLine="23" />
-		</Cursor>
-	</File>
-	<File name="Point3D.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-<<<<<<< HEAD
-			<Cursor1 position="324" topLine="0" />
-=======
-<<<<<<< HEAD
-			<Cursor1 position="958" topLine="15" />
-		</Cursor>
-	</File>
-	<File name="Cell.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="14" />
-		</Cursor>
-	</File>
-	<File name="Cell.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="21" topLine="0" />
-=======
-			<Cursor1 position="67" topLine="8" />
->>>>>>> 75994172269517a6704ba84ac7651df085ae6c03
-		</Cursor>
-	</File>
-	<File name="DrawHandler.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="635" topLine="12" />
-		</Cursor>
-	</File>
-	<File name="Cube.cpp" open="1" top="1" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4325" topLine="112" />
+			<Cursor1 position="2184" topLine="65" />
 		</Cursor>
 	</File>
 	<File name="Point3D.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="334" topLine="4" />
->>>>>>> 8e3c091a9f2c2d6994943c4ef0399d57b9a5b9da
+		</Cursor>
+	</File>
+	<File name="Point3D.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="324" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Cubelet.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="189" topLine="11" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

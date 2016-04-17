@@ -16,7 +16,9 @@ Cube rubiks;
 #define BACK 5
 #define FRONT 6
 #define MIDDLEX 7
-
+#define MIDDLEY 8
+#define MIDDLEZ 9
+#define ALL 10
 
 #include <vector>
 using namespace std;
@@ -57,16 +59,27 @@ void displayCube() {
 
 void keyPressed (unsigned char key, int x, int y) {
   Sleep(100);
-  if (key=='b') {
-    rubiks.handleRotate(BOTTOM,direction);
-  } else if (key=='f') {
-    rubiks.handleRotate(FRONT,direction);
-  } else if (key=='x') {
-    rubiks.handleRotate(MIDDLEX,direction);
-  } else if (key=='t') {
-    rubiks.handleRotate(TOP,direction);
-  } else if (key=='c') {
-    toggleDirection();
+  switch (key) {
+    case 'b': rubiks.handleRotate(BACK,direction);
+      break;
+    case 'f': rubiks.handleRotate(FRONT,direction);
+      break;
+    case 'o': rubiks.handleRotate(BOTTOM,direction);
+      break;
+    case 't': rubiks.handleRotate(TOP,direction);
+      break;
+    case 'l': rubiks.handleRotate(LEFT,direction);
+      break;
+    case 'r': rubiks.handleRotate(RIGHT,direction);
+      break;
+    case 'x': rubiks.handleRotate(MIDDLEX,direction);
+      break;
+    case 'y': rubiks.handleRotate(MIDDLEY,direction);
+      break;
+    case 'z': rubiks.handleRotate(MIDDLEZ,direction);
+      break;
+    case 'c': toggleDirection();
+      break;
   }
 }
 

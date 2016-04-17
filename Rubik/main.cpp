@@ -17,7 +17,6 @@ int main(int argc, char** argv) {
    glutInit(&argc, argv);
 
    while (choice != '0') {
-       int iteration;
        system("CLS");
        printLogo();
        printMenu();
