@@ -97,6 +97,40 @@ void keyPressed (unsigned char key, int x, int y) {
   }
 }
 
+void keyPressed5 (unsigned char key, int x, int y) {
+  Sleep(100);
+  switch (key) {
+    case 'b': rubiks5.handleRotate(BACK,direction);
+      break;
+    case 'f': rubiks5.handleRotate(FRONT,direction);
+      break;
+    case 'o': rubiks5.handleRotate(BOTTOM,direction);
+      break;
+    case 't': rubiks5.handleRotate(TOP,direction);
+      break;
+    case 'l': rubiks5.handleRotate(LEFT,direction);
+      break;
+    case 'r': rubiks5.handleRotate(RIGHT,direction);
+      break;
+    case 'x': rubiks5.handleRotate(MIDDLEX,direction);
+      break;
+    case 'y': rubiks5.handleRotate(MIDDLEY,direction);
+      break;
+    case 'z': rubiks5.handleRotate(MIDDLEZ,direction);
+      break;
+    case 'c': toggleDirection();
+      break;
+    case 'X': rubiks5.rotateAll(ALLX,direction);
+      break;
+    case 'Y': rubiks5.rotateAll(ALLY,direction);
+      break;
+    case 'Z': rubiks.rotateAll(ALLZ,direction);
+      break;
+    default:
+      break;
+  }
+}
+
 void toggleDirection() {
   if (direction==CLOCKWISE)
     direction = COUNTER_CLOCKWISE;
