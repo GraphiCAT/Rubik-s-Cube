@@ -2,10 +2,12 @@
 #include "Point3D.h"
 #include "Cell.h"
 #include "Cube.h"
+#include "Cube5.h"
 
 const int TRIANGLE = 0;
 const int TRIANGLE_POINT = 1;
 Cube rubiks;
+Cube5 rubiks5;
 
 #define CLOCKWISE 0
 #define COUNTER_CLOCKWISE -1
@@ -57,7 +59,7 @@ void init()
 void displayCube() {
    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear color and depth buffers
    glMatrixMode(GL_MODELVIEW);     // To operate on model-view matrix
-   rubiks.drawCube();
+   rubiks5.drawCube();
    glFlush();
 }
 
