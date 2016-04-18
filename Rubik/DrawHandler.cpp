@@ -90,6 +90,8 @@ void keyPressed (unsigned char key, int x, int y) {
       break;
     case 'Z': rubiks.rotateAll(ALLZ,direction);
       break;
+    case 's': rubiks.autoSolve();
+      break;
     default:
       break;
   }

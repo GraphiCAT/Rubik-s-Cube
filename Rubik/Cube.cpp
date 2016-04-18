@@ -122,9 +122,8 @@ void Cube::drawCube(){
 void Cube::rotateAll(int axis, int direction) {
   float degrees_per_frame = 5.0f;
   int frames = 45.0f/degrees_per_frame;
-  GLfloat angleCube = 0.0f;
 
-  if (direction==CLOCKWISE) {
+  if (direction==COUNTER_CLOCKWISE) {
     for (int i=0;i<=frames;i++) {
       rotateByAxis(degrees_per_frame,axis);
       Sleep(100);
@@ -159,15 +158,26 @@ void Cube::rotateByAxis(GLfloat angle, int axis) {
 }
 
 void Cube::handleRotate(int face, int direction) {
+  if (!solve) {
+    faceHistory.push_back(face);
+    directionHistory.push_back(direction);
+  }
+
   float degrees_per_frame = 10.0f;
   int frames = 90.0f/degrees_per_frame;
   GLfloat angleCube = 0.0f;
-
-  if (direction==CLOCKWISE) {
+  vector<int> rotate = getRotationVector(face);
+  vector<int> sides(rotate.begin(),rotate.begin()+12);
+  if (direction==COUNTER_CLOCKWISE) {
     for (int i=0;i<=frames;i++) {
-      rotateSlice(angleCube,getRotationVector(face),getRotationAxis(face));
+      rotateSlice(angleCube,rotate,getRotationAxis(face));
       angleCube += degrees_per_frame;
       Sleep(100);
+    }
+    swapColors(sides,3);
+    if (rotate.size()>12) {
+        vector<int> flat(rotate.begin()+12,rotate.begin()+20);
+        swapColors(flat,2);
     }
   } else {
     for (int i=0;i<=frames;i++) {
@@ -175,45 +185,66 @@ void Cube::handleRotate(int face, int direction) {
       angleCube -= degrees_per_frame;
       Sleep(100);
     }
+    swapColors(sides,-3);
+    if (rotate.size()>12) {
+        vector<int> flat(rotate.begin()+12,rotate.begin()+20);
+        swapColors(flat,-2);
+    }
   }
+}
+
+void Cube::autoSolve() {
+  solve = true;
+  int moves = faceHistory.size();
+  for (int i=0;i<moves;i++) {
+    if (directionHistory.back()==CLOCKWISE) {
+      handleRotate(faceHistory.back(),COUNTER_CLOCKWISE);
+    }
+    else {
+      handleRotate(faceHistory.back(),CLOCKWISE);
+    }
+    faceHistory.pop_back();
+    directionHistory.pop_back();
+  }
+  solve=false;
 }
 
 vector<int> Cube::getRotationVector(int face) {
   switch (face) {
     case BOTTOM: {
-      int arr[] = {0,1,2,3,4,5,6,7,8,18,21,24,36,37,38,27,30,33,45,46,47}; //clockwise
+      int arr[] = {24,21,18,36,37,38,27,30,33,47,46,45,0,1,2,5,8,7,6,3,4}; //clockwise
       return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
       } break;
     case TOP: {
-      int arr[] = {9,10,11,12,13,14,15,16,17,20,23,26,42,43,44,29,32,35,51,52,53}; //clockwise
+      int arr[] = {26,23,20,42,43,44,29,32,35,53,52,51,9,10,11,14,17,16,15,12,13}; //clockwise
       return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
       } break;
     case RIGHT: {
-      int arr[] = {27,28,29,30,31,32,33,34,35,2,5,8,38,41,44,11,14,17,47,50,53}; //clockwise
+      int arr[] = {8,5,2,38,41,44,11,14,17,53,50,47,27,28,29,32,35,34,33,30,31}; //clockwise
       return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
       } break;
     case LEFT: {
-      int arr[] = {18,19,20,21,22,23,24,25,26,0,3,6,36,39,42,9,12,15,45,48,51}; //clockwise
+      int arr[] = {6,3,0,36,39,42,9,12,15,51,48,45,18,19,20,23,26,25,24,21,22}; //clockwise
       return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
       } break;
     case BACK: {
-      int arr[] = {36,37,38,39,40,41,42,43,44,27,28,29,9,10,11,18,19,20,0,1,2}; //clockwise
+      int arr[] = {18,19,20,9,10,11,29,28,27,2,1,0,42,43,44,41,38,37,36,39,40}; //clockwise
       return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
       } break;
     case FRONT: {
-      int arr[] = {45,46,47,48,49,50,51,52,53,24,25,26,33,34,35,15,16,17,6,7,8}; //clockwise
+      int arr[] = {24,25,26,15,16,17,35,34,33,8,7,6,51,52,53,50,47,46,45,48,49}; //clockwise
       return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
       } break;
     case MIDDLEY: {
-      int arr[] = {48,49,50,19,22,25,39,40,41,28,31,34}; //clockwise
+      int arr[] = {50,49,48,25,22,19,39,40,41,28,31,34}; //clockwise
       return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
       } break;
     case MIDDLEX: {
-      int arr[] = {1,4,7,37,40,43,10,13,16,46,49,52}; // clockwise
+      int arr[] = {7,4,1,37,40,43,10,13,16,52,49,46}; // clockwise
       return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
       } break;
     case MIDDLEZ: {
-      int arr[] = {3,4,5,21,22,23,12,13,14,30,31,32}; //clockwise
+      int arr[] = {5,4,3,21,22,23,12,13,14,32,31,30}; //clockwise
       return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
       } break;
     default:
@@ -232,12 +263,12 @@ Point3D Cube::getRotationAxis(int face) {
     case RIGHT:
     case LEFT:
     case MIDDLEX:
-      return Point3D(1.0,0.0,0.0);
+      return Point3D(-1.0,0.0,0.0);
       break;
     case BACK:
     case FRONT:
     case MIDDLEZ:
-      return Point3D(0.0,0.0,-1.0);
+      return Point3D(0.0,0.0,1.0);
       break;
     default:
       break;
@@ -271,4 +302,18 @@ void Cube::rotateSlice(GLfloat angle, vector<int> rotate, Point3D axis) {
     glPopMatrix();
 
     glutSwapBuffers();
+}
+
+void Cube::swapColors(vector<int> array, int jump) {
+  vector<int> colors;
+
+  //copy colors to temp vector
+  for (int i=0;i<array.size();i++) {
+    colors.push_back(surface[array.at(i)].getColor());
+  }
+
+  //swap colors from vector
+  for (int i=0;i<array.size();i++) {
+    surface[array.at(i)].setColor(colors.at((i+array.size()+jump)%array.size()));
+  }
 }

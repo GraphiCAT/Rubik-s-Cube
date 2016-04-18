@@ -17,15 +17,19 @@ class Cube
         void drawCube();
         void handleRotate(int face, int direction);
         void rotateAll(int axis, int direction);
+        void autoSolve();
 
 
     private :
         void rotateSlice(GLfloat angle,std::vector<int> rotate, Point3D axis);
         std::vector<int> getRotationVector(int face);
         Point3D getRotationAxis(int face);
+        void swapColors(std::vector<int> array, int jump);
         void rotateByAxis(GLfloat angle, int axis);
         Cell surface[54];
-        GLfloat view[3];
+        std::vector<int> faceHistory;
+        std::vector<int> directionHistory;
+        bool solve = false;
 
 };
 
