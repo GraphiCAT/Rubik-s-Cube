@@ -16,7 +16,6 @@ class Cube
         void setSurface(Cell _surface[64]);
         void drawCube();
         void handleRotate(int face, int direction);
-        // void resetCube();
         void rotateAll(int axis, int direction);
 
 
@@ -25,7 +24,6 @@ class Cube
         std::vector<int> getRotationVector(int face);
         Point3D getRotationAxis(int face);
         void rotateByAxis(GLfloat angle, int axis);
-        // void setView(GLfloat deltaangle, int axis);
         Cell surface[54];
         GLfloat view[3];
 

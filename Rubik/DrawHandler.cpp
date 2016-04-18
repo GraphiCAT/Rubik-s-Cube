@@ -39,9 +39,9 @@ void initGL() {
    glDepthFunc(GL_LEQUAL);    // Set the type of depth-test
    glShadeModel(GL_SMOOTH);   // Enable smooth shading
    glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);  // Nice perspective corrections
-   glMatrixMode(GL_MODELVIEW); 
+   glMatrixMode(GL_MODELVIEW);
    glTranslatef(0.0f, 0.0f, -20.0f);
-   glRotatef(45.0f,-1.0f,1.0f,0.0f);
+   glRotatef(45.0f,1.0f,1.0f,0.0f);
 }
 
 void init()

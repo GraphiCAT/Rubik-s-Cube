@@ -160,23 +160,6 @@ void Cube::rotateByAxis(GLfloat angle, int axis) {
 
   glutSwapBuffers();
 }
-//
-// void Cube::setView(GLfloat deltaangle, int axis) {
-//   switch (axis) {
-//     case ALLX:
-//       view[0] += deltaangle;
-//       break;
-//     case ALLY:
-//       view[1] += deltaangle;
-//       break;
-//     case ALLZ:
-//       view[2] += deltaangle;
-//       break;
-//     default:
-//       break;
-//   }
-// }
-
 
 void Cube::handleRotate(int face, int direction) {
   float degrees_per_frame = 10.0f;
@@ -292,4 +275,3 @@ void Cube::rotateSlice(GLfloat angle, vector<int> rotate, Point3D axis) {
 
     glutSwapBuffers();
 }
-
