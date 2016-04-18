@@ -227,7 +227,7 @@ void printLogo() {
     fr_array[i] = 0;
     std::cout << "                     " << fr_array << std::endl;
     std::cout << std::endl;
-    std::cout << "                     " << "  Welcome to GraphiCAT Program!  " << std::endl;
+    std::cout << "                     " << "  Welcome to GraphiCAT Rubik's!  " << std::endl;
     std::cout << std::endl;
     std::cout << "                     " << fr_array << std::endl;
     std::cout << std::endl;
@@ -235,11 +235,23 @@ void printLogo() {
 }
 
 void printMenu() {
-    std::cout << "Please select from the programs listed below:" << std::endl;
-    std::cout << "1. Rainbow cube" << std::endl;
-    std::cout << "2. Sierpinski Sieve Points" << std::endl;
-    std::cout << "3. Sierpinski Sieve" << std::endl;
-    std::cout << "0. Exit :(" << std::endl;
+
+    std::cout << "Control" << std::endl;
+    std::cout << "1: Start playing" << std::endl;
+    std::cout << "f: Rotate front" << std::endl;
+    std::cout << "b: Rotate back" << std::endl;
+    std::cout << "r: Rotate right" << std::endl;
+    std::cout << "l: Rotate left" << std::endl;
+    std::cout << "t: Rotate top" << std::endl;
+    std::cout << "o: Rotate bottom" << std::endl;
+    std::cout << "x: Rotate middle by x-axis" << std::endl;
+    std::cout << "y: Rotate middle by y-axis" << std::endl;
+    std::cout << "z: Rotate middle by z-axis" << std::endl;
+    std::cout << "X: Rotate all by x-axis" << std::endl;
+    std::cout << "Y: Rotate all by y-axis" << std::endl;
+    std::cout << "Z: Middle all by z-axis" << std::endl;
+    std::cout << "c: Toggle direction" << std::endl;
+
 }
 
 void printGoodbye() {
