@@ -2,10 +2,12 @@
 #include "Point3D.h"
 #include "Cell.h"
 #include "Cube.h"
+#include "Cube5.h"
 
 const int TRIANGLE = 0;
 const int TRIANGLE_POINT = 1;
 Cube rubiks;
+Cube5 rubiks5;
 
 #define CLOCKWISE 0
 #define COUNTER_CLOCKWISE -1
@@ -61,6 +63,13 @@ void displayCube() {
    glFlush();
 }
 
+void displayCube5() {
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear color and depth buffers
+  glMatrixMode(GL_MODELVIEW);     // To operate on model-view matrix
+  rubiks5.drawCube();
+  glFlush();
+}
+
 void keyPressed (unsigned char key, int x, int y) {
   Sleep(100);
   switch (key) {
@@ -91,6 +100,40 @@ void keyPressed (unsigned char key, int x, int y) {
     case 'Z': rubiks.rotateAll(ALLZ,direction);
       break;
     case 's': rubiks.autoSolve();
+      break;
+    default:
+      break;
+  }
+}
+
+void keyPressed5 (unsigned char key, int x, int y) {
+  Sleep(100);
+  switch (key) {
+    case 'b': rubiks5.handleRotate(BACK,direction);
+      break;
+    case 'f': rubiks5.handleRotate(FRONT,direction);
+      break;
+    case 'o': rubiks5.handleRotate(BOTTOM,direction);
+      break;
+    case 't': rubiks5.handleRotate(TOP,direction);
+      break;
+    case 'l': rubiks5.handleRotate(LEFT,direction);
+      break;
+    case 'r': rubiks5.handleRotate(RIGHT,direction);
+      break;
+    case 'x': rubiks5.handleRotate(MIDDLEX,direction);
+      break;
+    case 'y': rubiks5.handleRotate(MIDDLEY,direction);
+      break;
+    case 'z': rubiks5.handleRotate(MIDDLEZ,direction);
+      break;
+    case 'c': toggleDirection();
+      break;
+    case 'X': rubiks5.rotateAll(ALLX,direction);
+      break;
+    case 'Y': rubiks5.rotateAll(ALLY,direction);
+      break;
+    case 'Z': rubiks.rotateAll(ALLZ,direction);
       break;
     default:
       break;
@@ -181,6 +224,10 @@ void display_1(void)
    displayCube();
 }
 
+void display_2(void)
+{
+   displayCube5();
+}
 
 // This is called when the window has been resized.
 void reshape_2 (int w, int h)
@@ -239,7 +286,8 @@ void printLogo() {
 void printMenu() {
 
     std::cout << "Control" << std::endl;
-    std::cout << "1: Start playing" << std::endl;
+    std::cout << "1: Start playing (3x3)" << std::endl;
+    std::cout << "2: Start playing (5x5)" << std::endl;
     std::cout << "f: Rotate front" << std::endl;
     std::cout << "b: Rotate back" << std::endl;
     std::cout << "r: Rotate right" << std::endl;

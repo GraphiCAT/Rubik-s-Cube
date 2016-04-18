@@ -35,6 +35,17 @@ int main(int argc, char** argv) {
            glutMouseFunc(mouse);
            initGL();
            glutMainLoop();
+       } else if (choice == '2') { // cube
+           glutInitWindowSize(800, 600);
+           glutInitWindowPosition(50, 50);
+           window_1 = glutCreateWindow (argv[0]);
+           glutSetWindowTitle(title);
+           glutDisplayFunc(display_2);
+           glutReshapeFunc(reshape_2);
+           glutKeyboardFunc(keyPressed5);
+           glutMouseFunc(mouse);
+           initGL();
+           glutMainLoop();
        }
    }
    printGoodbye();

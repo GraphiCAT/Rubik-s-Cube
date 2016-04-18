@@ -10,6 +10,7 @@ typedef GLfloat point2[2];
 void initGL();
 void init();
 void displayCube();
+void displayCube5();
 void triangle( point2 a, point2 b, point2 c);
 void triangle_point( point2 a, point2 b, point2 c);
 void divide_triangle(point2 a, point2 b, point2 c,int m, int type);
@@ -22,6 +23,7 @@ void reshape_2 (int w, int h);
 void reshape_3 (int w, int h);
 void setIteration(int itr);
 void keyPressed(unsigned char key, int x, int y);
+void keyPressed5(unsigned char key, int x, int y);
 void mouse(int btn, int state, int x, int y);
 void toggleDirection();
 

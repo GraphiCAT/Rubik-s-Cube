@@ -9,7 +9,7 @@
 
 1460790974 f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\point3d.h
 
-1460944608 source:f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\main.cpp
+1460952950 source:f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\main.cpp
 	<cstdlib>
 	<windows.h>
 	<GL/glut.h>
@@ -32,19 +32,20 @@
 1460783967 source:f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\point3d.cpp
 	"Point3D.h"
 
-1460947922 source:f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\drawhandler.cpp
+1460952908 source:f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\drawhandler.cpp
 	"DrawHandler.h"
 	"Point3D.h"
 	"Cell.h"
 	"Cube.h"
+	"Cube5.h"
 	<vector>
 
-1460944608 f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\drawhandler.h
+1460952921 f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\drawhandler.h
 	<iostream>
 	<windows.h>
 	<GL/glut.h>
 
-1460949091 source:f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\cube.cpp
+1460949687 source:f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\cube.cpp
 	"Cube.h"
 	<windows.h>
 	<iostream>
@@ -311,7 +312,7 @@
 	<GL/glut.h>
 	"DrawHandler.h"
 
-1460804311 D
+1460950928 D
 	<vector>
 
 1301111164 c:\program files (x86)\codeblocks\mingw\include\gl\gl.h
@@ -420,25 +421,36 @@
 
 1460950619 c:\users\asus x202e\documents\github\rubik\rubik-s-cube\rubik\point3d.h
 
-1460957526 source:c:\users\asus x202e\documents\github\rubik\rubik-s-cube\rubik\drawhandler.cpp
+1460958708 source:c:\users\asus x202e\documents\github\rubik\rubik-s-cube\rubik\drawhandler.cpp
 	"DrawHandler.h"
 	"Point3D.h"
 	"Cell.h"
 	"Cube.h"
+	"Cube5.h"
 	<vector>
 
-1460950619 c:\users\asus x202e\documents\github\rubik\rubik-s-cube\rubik\drawhandler.h
+1460958730 c:\users\asus x202e\documents\github\rubik\rubik-s-cube\rubik\drawhandler.h
 	<iostream>
 	<windows.h>
 	<GL/glut.h>
 
 1460957515 c:\users\asus x202e\documents\github\rubik\rubik-s-cube\rubik\cube.h
+
+1460952531 source:f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\cube5.cpp
+	"Cube5.h"
+	<iostream>
+	<vector>
+	<algorithm>
+
+1460950928 f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\cube5.h
+
+1460954283 877c9b3492d7a46cd1396f57d29f44a1e18cf
 	"Point3D.h"
 	"Cell.h"
 	<vector>
 	<GL/glut.h>
 
-1460950619 source:c:\users\asus x202e\documents\github\rubik\rubik-s-cube\rubik\main.cpp
+1460958778 source:c:\users\asus x202e\documents\github\rubik\rubik-s-cube\rubik\main.cpp
 	<cstdlib>
 	<windows.h>
 	<GL/glut.h>
@@ -447,10 +459,18 @@
 1460950619 source:c:\users\asus x202e\documents\github\rubik\rubik-s-cube\rubik\point3d.cpp
 	"Point3D.h"
 
-1460954283 source:c:\users\asus x202e\documents\github\rubik\rubik-s-cube\rubik\cube.cpp
+1460958407 source:c:\users\asus x202e\documents\github\rubik\rubik-s-cube\rubik\cube.cpp
 	"Cube.h"
 	<windows.h>
 	<iostream>
 	<vector>
 	<algorithm>
+
+1460954283 >
+
+1460958559 c:\users\asus x202e\documents\github\rubik\rubik-s-cube\rubik\cube5.h
+	"Point3D.h"
+	"Cell.h"
+	<vector>
+	<GL/glut.h>
 
