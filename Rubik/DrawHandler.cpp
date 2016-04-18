@@ -133,7 +133,7 @@ void keyPressed5 (unsigned char key, int x, int y) {
       break;
     case 'Y': rubiks5.rotateAll(ALLY,direction);
       break;
-    case 'Z': rubiks.rotateAll(ALLZ,direction);
+    case 'Z': rubiks5.rotateAll(ALLZ,direction);
       break;
     default:
       break;
