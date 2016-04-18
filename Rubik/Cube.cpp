@@ -131,13 +131,10 @@ void Cube::rotateAll(int axis, int direction) {
     }
   } else {
     for (int i=0;i<=frames;i++) {
-      rotateByAxis(angleCube,axis);
-      angleCube -= degrees_per_frame;
+      rotateByAxis(-degrees_per_frame,axis);
       Sleep(100);
     }
   }
-
-    cout << view[0] << " " << view[1] << " " << view[2] << endl;
 }
 
 void Cube::rotateByAxis(GLfloat angle, int axis) {
@@ -184,39 +181,39 @@ void Cube::handleRotate(int face, int direction) {
 vector<int> Cube::getRotationVector(int face) {
   switch (face) {
     case BOTTOM: {
-      int arr[] = {0,1,2,3,4,5,6,7,8,18,21,24,27,30,33,36,37,38,45,46,47};
+      int arr[] = {0,1,2,3,4,5,6,7,8,18,21,24,36,37,38,27,30,33,45,46,47}; //clockwise
       return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
       } break;
     case TOP: {
-      int arr[] = {9,10,11,12,13,14,15,16,17,20,23,26,29,32,35,42,43,44,51,52,53};
+      int arr[] = {9,10,11,12,13,14,15,16,17,20,23,26,42,43,44,29,32,35,51,52,53}; //clockwise
       return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
       } break;
     case RIGHT: {
-      int arr[] = {27,28,29,30,31,32,33,34,35,2,5,8,47,50,53,11,14,17,38,41,44};
+      int arr[] = {27,28,29,30,31,32,33,34,35,2,5,8,38,41,44,11,14,17,47,50,53}; //clockwise
       return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
       } break;
     case LEFT: {
-      int arr[] = {18,19,20,21,22,23,24,25,26,0,3,6,45,48,51,9,12,15,36,39,42};
+      int arr[] = {18,19,20,21,22,23,24,25,26,0,3,6,36,39,42,9,12,15,45,48,51}; //clockwise
       return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
       } break;
     case BACK: {
-      int arr[] = {36,37,38,39,40,41,42,43,44,27,28,29,18,19,20,0,1,2,9,10,11};
+      int arr[] = {36,37,38,39,40,41,42,43,44,27,28,29,9,10,11,18,19,20,0,1,2}; //clockwise
       return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
       } break;
     case FRONT: {
-      int arr[] = {45,46,47,48,49,50,51,52,53,33,34,35,24,25,26,6,7,8,15,16,17};
+      int arr[] = {45,46,47,48,49,50,51,52,53,24,25,26,33,34,35,15,16,17,6,7,8}; //clockwise
       return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
       } break;
     case MIDDLEY: {
-      int arr[] = {48,49,50,39,40,41,28,31,34,19,22,25};
+      int arr[] = {48,49,50,19,22,25,39,40,41,28,31,34}; //clockwise
       return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
       } break;
     case MIDDLEX: {
-      int arr[] = {1,4,7,10,13,16,37,40,43,46,49,52};
+      int arr[] = {1,4,7,37,40,43,10,13,16,46,49,52}; // clockwise
       return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
       } break;
     case MIDDLEZ: {
-      int arr[] = {3,4,5,12,13,14,21,22,23,30,31,32};
+      int arr[] = {3,4,5,21,22,23,12,13,14,30,31,32}; //clockwise
       return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
       } break;
     default:

@@ -17,8 +17,6 @@ class Cube
         void drawCube();
         void handleRotate(int face, int direction);
         void rotateAll(int axis, int direction);
-        void setColor();
-        void setCubeColor();
 
 
     private :
@@ -28,7 +26,6 @@ class Cube
         void rotateByAxis(GLfloat angle, int axis);
         Cell surface[54];
         GLfloat view[3];
-        int color[54];
 
 };
 

@@ -32,7 +32,7 @@
 1460783967 source:f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\point3d.cpp
 	"Point3D.h"
 
-1460944608 source:f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\drawhandler.cpp
+1460947922 source:f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\drawhandler.cpp
 	"DrawHandler.h"
 	"Point3D.h"
 	"Cell.h"
@@ -44,14 +44,14 @@
 	<windows.h>
 	<GL/glut.h>
 
-1460944608 source:f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\cube.cpp
+1460949091 source:f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\cube.cpp
 	"Cube.h"
 	<windows.h>
 	<iostream>
 	<vector>
 	<algorithm>
 
-1460944608 f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\cube.h
+1460947702 f:\itb\semester_6\if3260 grafika komputer\rubik-s-cube\rubik\cube.h
 	"Point3D.h"
 	"Cell.h"
 	<vector>
