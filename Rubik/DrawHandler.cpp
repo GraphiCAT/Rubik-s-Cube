@@ -7,9 +7,29 @@ const int TRIANGLE = 0;
 const int TRIANGLE_POINT = 1;
 Cube rubiks;
 
+#define CLOCKWISE 0
+#define COUNTER_CLOCKWISE -1
+#define TOP 1
+#define BOTTOM 2
+#define LEFT 3
+#define RIGHT 4
+#define BACK 5
+#define FRONT 6
+#define MIDDLEX 7
+#define MIDDLEY 8
+#define MIDDLEZ 9
+#define ALLX 10
+#define ALLY 11
+#define ALLZ 12
+
+#include <vector>
+using namespace std;
+
 
 int refreshMills = 15;        // refresh interval in milliseconds [NEW]
 int iteration = 1;
+float angle = 0.0f;
+int direction = CLOCKWISE;
 
 /* Initialize OpenGL Graphics */
 void initGL() {
@@ -19,6 +39,9 @@ void initGL() {
    glDepthFunc(GL_LEQUAL);    // Set the type of depth-test
    glShadeModel(GL_SMOOTH);   // Enable smooth shading
    glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);  // Nice perspective corrections
+   glMatrixMode(GL_MODELVIEW);
+   glTranslatef(0.0f, 0.0f, -20.0f);
+   glRotatef(45.0f,1.0f,1.0f,0.0f);
 }
 
 void init()
@@ -34,18 +57,65 @@ void init()
 void displayCube() {
    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear color and depth buffers
    glMatrixMode(GL_MODELVIEW);     // To operate on model-view matrix
-
-   // Render a color-cube consisting of 6 quads with different colors
-   glLoadIdentity();                 // Reset the model-view matrix
-   glTranslatef(0.0f, 0.0f, -20.0f);  // Move right and into the screen
-
-    rubiks.rotateBack();
-
+   rubiks.drawCube();
    glFlush();
 }
 
+void keyPressed (unsigned char key, int x, int y) {
+  Sleep(100);
+  switch (key) {
+    case 'b': rubiks.handleRotate(BACK,direction);
+      break;
+    case 'f': rubiks.handleRotate(FRONT,direction);
+      break;
+    case 'o': rubiks.handleRotate(BOTTOM,direction);
+      break;
+    case 't': rubiks.handleRotate(TOP,direction);
+      break;
+    case 'l': rubiks.handleRotate(LEFT,direction);
+      break;
+    case 'r': rubiks.handleRotate(RIGHT,direction);
+      break;
+    case 'x': rubiks.handleRotate(MIDDLEX,direction);
+      break;
+    case 'y': rubiks.handleRotate(MIDDLEY,direction);
+      break;
+    case 'z': rubiks.handleRotate(MIDDLEZ,direction);
+      break;
+    case 'c': toggleDirection();
+      break;
+    case 'X': rubiks.rotateAll(ALLX,direction);
+      break;
+    case 'Y': rubiks.rotateAll(ALLY,direction);
+      break;
+    case 'Z': rubiks.rotateAll(ALLZ,direction);
+      break;
+    default:
+      break;
+  }
+}
+
+void toggleDirection() {
+  if (direction==CLOCKWISE)
+    direction = COUNTER_CLOCKWISE;
+  else
+    direction = CLOCKWISE;
+}
+
+
+void mouse(int btn, int state, int x, int y)
+  {
+    if (state == GLUT_DOWN)
+    {
+      if (btn == GLUT_LEFT_BUTTON);
+
+      else if (btn == GLUT_RIGHT_BUTTON);
+
+  }
+}
 
 /* Called back when timer expired [NEW] */
+
 void timer(int value) {
    glutPostRedisplay();      // Post re-paint request to activate display()
    glutTimerFunc(refreshMills, timer, 0); // next timer call milliseconds later
@@ -74,17 +144,6 @@ void triangle( point2 a, point2 b, point2 c)
         green = 0;
         blue = 81.0/255.0;
     }
-
-    /* if (red > 0 && blue < 0.25) {
-        red = red - 0.25;
-        green = green + 0.25;
-    } else if (green > 0 && red < 0.25) {
-        green = green - 0.25;
-        blue = blue + 0.25;
-    } else if (blue > 0 && green < 0.25) {
-        blue = blue - 0.25;
-        red = red + 0.25;
-    } */
 }
 
 
@@ -189,4 +248,3 @@ void printGoodbye() {
    std::cout << std::endl;
    std::cout << "                         ====== Bye-bye! :'( ======                         " << std::endl;
 }
-

@@ -21,6 +21,9 @@ void reshape_1(GLsizei width, GLsizei height);
 void reshape_2 (int w, int h);
 void reshape_3 (int w, int h);
 void setIteration(int itr);
+void keyPressed(unsigned char key, int x, int y);
+void mouse(int btn, int state, int x, int y);
+void toggleDirection();
 
 void printLogo();
 void printMenu();
@@ -30,5 +33,3 @@ void timer(int value);
 
 
 #endif // DrawHandler_H
-
-

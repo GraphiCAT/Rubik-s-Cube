@@ -1,34 +1,28 @@
 #include "Cube.h"
 #include <windows.h>  // for MS Windows
-#include <GL/glut.h>  // GLUT, include glu.h and gl.h
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
+
+#define CLOCKWISE 0
+#define COUNTER_CLOCKWISE -1
+#define TOP 1
+#define BOTTOM 2
+#define LEFT 3
+#define RIGHT 4
+#define BACK 5
+#define FRONT 6
+#define MIDDLEX 7
+#define MIDDLEY 8
+#define MIDDLEZ 9
+#define ALLX 10
+#define ALLY 11
+#define ALLZ 12
 
 using namespace std;
-GLfloat angleCube = 0.0f;     // Rotational angle for cube [NEW]
 
 Cube::Cube() {
-    //Define Color
-    for (int i = 0; i < 9; i++) {
-        color[i] = WHITE;
-    }
-    for (int i = 9; i < 18; i++) {
-        color[i] = YELLOW;
-    }
-    for (int i = 18; i < 27; i++) {
-        color[i] = RED;
-    }
-    for (int i = 27; i < 36; i++) {
-        color[i] = ORANGE;
-    }
-    for (int i = 36; i < 45; i++) {
-        color[i] = BLUE;
-    }
-    for (int i = 45; i < 54; i++) {
-        color[i] = GREEN;
-    }
-
     Point3D top(0,-1,0);
     Point3D bottom(0,1,0);
     Point3D right(1,0,0);
@@ -36,7 +30,7 @@ Cube::Cube() {
     Point3D behind(0,0,-1);
     Point3D infront(0,0,1);
 
-    //TOP SURFACE
+    //BOTTOM SURFACE
     surface[0] = Cell(WHITE, Point3D(-1,-1.9,-1), top);
     surface[1] = Cell(WHITE, Point3D(0,-1.9,-1), top);
     surface[2] = Cell(WHITE, Point3D(1,-1.9,-1), top);
@@ -48,7 +42,7 @@ Cube::Cube() {
     surface[8] = Cell(WHITE, Point3D(1,-1.9,1), top);
 
 
-    //BOTTOM SURFACE
+    //TOP SURFACE
     surface[9] = Cell(YELLOW, Point3D(-1,1.9,-1), bottom);
     surface[10] = Cell(YELLOW, Point3D(0,1.9,-1), bottom);
     surface[11] = Cell(YELLOW, Point3D(1,1.9,-1), bottom);
@@ -125,222 +119,159 @@ void Cube::drawCube(){
     }
 }
 
-void Cube::rotateAll() {
-    glRotatef(angleCube, 1.0f, 1.0f, 1.0f);  // Rotate about (1,1,1)-axis [NEW]
-    drawCube();
-    glutSwapBuffers();  // Swap the front and back frame buffers (double buffering)
+void Cube::rotateAll(int axis, int direction) {
+  float degrees_per_frame = 5.0f;
+  int frames = 45.0f/degrees_per_frame;
+  GLfloat angleCube = 0.0f;
 
-   angleCube -= 0.45f;
+  if (direction==CLOCKWISE) {
+    for (int i=0;i<=frames;i++) {
+      rotateByAxis(degrees_per_frame,axis);
+      Sleep(100);
+    }
+  } else {
+    for (int i=0;i<=frames;i++) {
+      rotateByAxis(angleCube,axis);
+      angleCube -= degrees_per_frame;
+      Sleep(100);
+    }
+  }
+
+    cout << view[0] << " " << view[1] << " " << view[2] << endl;
 }
 
-void Cube::rotateBottom(){
-    static const int arr[] = {0,1,2,3,4,5,6,7,8,18,21,24,27,30,33,36,37,38,45,46,47};
-    vector<int> bottom (arr, arr + sizeof(arr) / sizeof(arr[0]));
-
+void Cube::rotateByAxis(GLfloat angle, int axis) {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear color and depth buffers
 
-    glRotatef(angleCube, 1.0f, 1.0f, 1.0f);  // Rotate about (1,1,1)-axis [NEW]
+  switch (axis) {
+    case ALLX:
+      glRotatef(angle,1.0f,0.0f,0.0f);
+      break;
+    case ALLY:
+      glRotatef(angle,0.0f,1.0f,0.0f);
+      break;
+    case ALLZ:
+      glRotatef(angle,0.0f,0.0f,1.0f);
+      break;
+    default:
+      break;
+  }
+  drawCube();
 
+  glutSwapBuffers();
+}
+
+void Cube::handleRotate(int face, int direction) {
+  float degrees_per_frame = 10.0f;
+  int frames = 90.0f/degrees_per_frame;
+  GLfloat angleCube = 0.0f;
+
+  if (direction==CLOCKWISE) {
+    for (int i=0;i<=frames;i++) {
+      rotateSlice(angleCube,getRotationVector(face),getRotationAxis(face));
+      angleCube += degrees_per_frame;
+      Sleep(100);
+    }
+  } else {
+    for (int i=0;i<=frames;i++) {
+      rotateSlice(angleCube,getRotationVector(face),getRotationAxis(face));
+      angleCube -= degrees_per_frame;
+      Sleep(100);
+    }
+  }
+}
+
+vector<int> Cube::getRotationVector(int face) {
+  switch (face) {
+    case BOTTOM: {
+      int arr[] = {0,1,2,3,4,5,6,7,8,18,21,24,27,30,33,36,37,38,45,46,47};
+      return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
+      } break;
+    case TOP: {
+      int arr[] = {9,10,11,12,13,14,15,16,17,20,23,26,29,32,35,42,43,44,51,52,53};
+      return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
+      } break;
+    case RIGHT: {
+      int arr[] = {27,28,29,30,31,32,33,34,35,2,5,8,47,50,53,11,14,17,38,41,44};
+      return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
+      } break;
+    case LEFT: {
+      int arr[] = {18,19,20,21,22,23,24,25,26,0,3,6,45,48,51,9,12,15,36,39,42};
+      return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
+      } break;
+    case BACK: {
+      int arr[] = {36,37,38,39,40,41,42,43,44,27,28,29,18,19,20,0,1,2,9,10,11};
+      return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
+      } break;
+    case FRONT: {
+      int arr[] = {45,46,47,48,49,50,51,52,53,33,34,35,24,25,26,6,7,8,15,16,17};
+      return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
+      } break;
+    case MIDDLEY: {
+      int arr[] = {48,49,50,39,40,41,28,31,34,19,22,25};
+      return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
+      } break;
+    case MIDDLEX: {
+      int arr[] = {1,4,7,10,13,16,37,40,43,46,49,52};
+      return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
+      } break;
+    case MIDDLEZ: {
+      int arr[] = {3,4,5,12,13,14,21,22,23,30,31,32};
+      return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
+      } break;
+    default:
+      break;
+  }
+  return vector<int>();
+}
+
+Point3D Cube::getRotationAxis(int face) {
+  switch (face) {
+    case BOTTOM:
+    case TOP:
+    case MIDDLEY:
+      return Point3D(0.0,1.0,0.0);
+      break;
+    case RIGHT:
+    case LEFT:
+    case MIDDLEX:
+      return Point3D(1.0,0.0,0.0);
+      break;
+    case BACK:
+    case FRONT:
+    case MIDDLEZ:
+      return Point3D(0.0,0.0,-1.0);
+      break;
+    default:
+      break;
+  }
+  return Point3D();
+}
+
+void Cube::rotateSlice(GLfloat angle, vector<int> rotate, Point3D axis) {
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear color and depth buffers
+
+    glPushMatrix();
+
+    //Draw cube unrotated
     for (int i = 0; i < 54; i++) {
-        bool cek = false;
-        for (int j = 0; j < bottom.size(); j++) {
-            if (i == bottom.at(j)) {
-                cek = true;
-                break;
-            }
-        }
-        if (!cek) {
+        if(std::find(rotate.begin(), rotate.end(), i) == rotate.end()) {
             surface[i].drawCell();
         }
     }
 
-    glRotatef(angleCube, 0.0f, -1.0f, 0.0f);  // Rotate about (1,1,1)-axis [NEW]
-    for (int i = 0; i < bottom.size(); i++) {
-        surface[bottom.at(i)].drawCell();
+    glPopMatrix();
+
+    glPushMatrix();
+    //Rotate around axis
+    glRotatef(angle,(GLfloat)axis.getX(),(GLfloat)axis.getY(),(GLfloat)axis.getZ());
+
+    //Draw rotated
+    for (int i = 0; i < rotate.size(); i++) {
+        surface[rotate.at(i)].drawCell();
     }
 
-    glutSwapBuffers();  // Swap the front and back frame buffers (double buffering)
+    glPopMatrix();
 
-    glutSwapBuffers();  // Swap the front and back frame buffers (double buffering)
-
-   angleCube -= 0.45f;
+    glutSwapBuffers();
 }
-
-void Cube::rotateTop(){
-    static const int arr[] = {9,10,11,12,13,14,15,16,17,20,23,26,29,32,35,42,43,44,51,52,53};
-    vector<int> bottom (arr, arr + sizeof(arr) / sizeof(arr[0]));
-
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear color and depth buffers
-
-    glRotatef(angleCube, 1.0f, 1.0f, 1.0f);  // Rotate about (1,1,1)-axis [NEW]
-
-    for (int i = 0; i < 54; i++) {
-        bool cek = false;
-        for (int j = 0; j < bottom.size(); j++) {
-            if (i == bottom.at(j)) {
-                cek = true;
-                break;
-            }
-        }
-        if (!cek) {
-            surface[i].drawCell();
-        }
-    }
-
-    glRotatef(angleCube, 0.0f, -1.0f, 0.0f);  // Rotate about (1,1,1)-axis [NEW]
-    for (int i = 0; i < bottom.size(); i++) {
-        surface[bottom.at(i)].drawCell();
-    }
-
-    glutSwapBuffers();  // Swap the front and back frame buffers (double buffering)
-
-    glutSwapBuffers();  // Swap the front and back frame buffers (double buffering)
-
-   angleCube -= 0.45f;
-
-}
-
-void Cube::rotateRight(){
-    static const int arr[] = {27,28,29,30,31,32,33,34,35,2,5,8,47,50,53,11,14,17,38,41,44};
-    vector<int> bottom (arr, arr + sizeof(arr) / sizeof(arr[0]));
-
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear color and depth buffers
-
-    glRotatef(angleCube, 1.0f, 1.0f, 1.0f);  // Rotate about (1,1,1)-axis [NEW]
-
-
-    for (int i = 0; i < 54; i++) {
-        bool cek = false;
-        for (int j = 0; j < bottom.size(); j++) {
-            if (i == bottom.at(j)) {
-                cek = true;
-                break;
-            }
-        }
-        if (!cek) {
-            surface[i].drawCell();
-        }
-    }
-
-    glRotatef(angleCube, 1.0f, 0.0f, 0.0f);  // Rotate about (1,1,1)-axis [NEW]
-    for (int i = 0; i < bottom.size(); i++) {
-        surface[bottom.at(i)].drawCell();
-    }
-
-    glutSwapBuffers();  // Swap the front and back frame buffers (double buffering)
-
-    glutSwapBuffers();  // Swap the front and back frame buffers (double buffering)
-
-   angleCube -= 0.45f;
-
-}
-
-void Cube::rotateLeft(){
-
-    static const int arr[] = {18,19,20,21,22,23,24,25,26,0,3,6,45,48,51,9,12,15,36,39,42};
-    vector<int> bottom (arr, arr + sizeof(arr) / sizeof(arr[0]));
-
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear color and depth buffers
-
-    glRotatef(angleCube, 1.0f, 1.0f, 1.0f);  // Rotate about (1,1,1)-axis [NEW]
-
-
-    for (int i = 0; i < 54; i++) {
-        bool cek = false;
-        for (int j = 0; j < bottom.size(); j++) {
-            if (i == bottom.at(j)) {
-                cek = true;
-                break;
-            }
-        }
-        if (!cek) {
-            surface[i].drawCell();
-        }
-    }
-
-    glRotatef(angleCube, 1.0f, 0.0f, 0.0f);  // Rotate about (1,1,1)-axis [NEW]
-    for (int i = 0; i < bottom.size(); i++) {
-        surface[bottom.at(i)].drawCell();
-    }
-
-    glutSwapBuffers();  // Swap the front and back frame buffers (double buffering)
-
-    glutSwapBuffers();  // Swap the front and back frame buffers (double buffering)
-
-   angleCube -= 0.45f;
-
-}
-
-void Cube::rotateFront(){
-
-    static const int arr[] = {45,46,47,48,49,50,51,52,53,33,34,35,24,25,26,6,7,8,15,16,17};
-    vector<int> bottom (arr, arr + sizeof(arr) / sizeof(arr[0]));
-
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear color and depth buffers
-
-    glRotatef(angleCube, 1.0f, 1.0f, 1.0f);  // Rotate about (1,1,1)-axis [NEW]
-
-
-    for (int i = 0; i < 54; i++) {
-        bool cek = false;
-        for (int j = 0; j < bottom.size(); j++) {
-            if (i == bottom.at(j)) {
-                cek = true;
-                break;
-            }
-        }
-        if (!cek) {
-            surface[i].drawCell();
-        }
-    }
-
-    glRotatef(angleCube, 0.0f, 0.0f, 1.0f);  // Rotate about (1,1,1)-axis [NEW]
-    for (int i = 0; i < bottom.size(); i++) {
-        surface[bottom.at(i)].drawCell();
-    }
-
-    glutSwapBuffers();  // Swap the front and back frame buffers (double buffering)
-
-    glutSwapBuffers();  // Swap the front and back frame buffers (double buffering)
-
-   angleCube -= 0.45f;
-
-}
-
-void Cube::rotateBack(){
-
-    static const int arr[] = {36,37,38,39,40,41,42,43,44,27,28,29,18,19,20,0,1,2,9,10,11};
-    vector<int> bottom (arr, arr + sizeof(arr) / sizeof(arr[0]));
-
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear color and depth buffers
-
-    glRotatef(angleCube, 1.0f, 1.0f, 1.0f);  // Rotate about (1,1,1)-axis [NEW]
-
-
-    for (int i = 0; i < 54; i++) {
-        bool cek = false;
-        for (int j = 0; j < bottom.size(); j++) {
-            if (i == bottom.at(j)) {
-                cek = true;
-                break;
-            }
-        }
-        if (!cek) {
-            surface[i].drawCell();
-        }
-    }
-
-    glRotatef(angleCube, 0.0f, 0.0f, 1.0f);  // Rotate about (1,1,1)-axis [NEW]
-    for (int i = 0; i < bottom.size(); i++) {
-        surface[bottom.at(i)].drawCell();
-    }
-
-    glutSwapBuffers();  // Swap the front and back frame buffers (double buffering)
-
-    glutSwapBuffers();  // Swap the front and back frame buffers (double buffering)
-
-   angleCube -= 0.45f;
-
-}
-
-
