@@ -113,11 +113,11 @@
 
 1301111162 c:\program files (x86)\codeblocks\mingw\include\winerror.h
 
-1341010376 c:\program files (x86)\codeblocks\mingw\include\string.h
+1341006776 c:\program files (x86)\codeblocks\mingw\include\string.h
 	<_mingw.h>
 	<stddef.h>
 
-1341010370 c:\program files (x86)\codeblocks\mingw\include\_mingw.h
+1341006770 c:\program files (x86)\codeblocks\mingw\include\_mingw.h
 
 1301111148 c:\program files (x86)\codeblocks\mingw\include\basetsd.h
 
@@ -185,7 +185,7 @@
 
 1301111158 c:\program files (x86)\codeblocks\mingw\include\rpcnterr.h
 
-1341010372 c:\program files (x86)\codeblocks\mingw\include\excpt.h
+1341006772 c:\program files (x86)\codeblocks\mingw\include\excpt.h
 	<_mingw.h>
 	<windef.h>
 
@@ -247,7 +247,7 @@
 	<objidl.h>
 	<cguid.h>
 
-1341010376 c:\program files (x86)\codeblocks\mingw\include\stdlib.h
+1341006776 c:\program files (x86)\codeblocks\mingw\include\stdlib.h
 	<_mingw.h>
 	<stddef.h>
 
@@ -332,16 +332,18 @@
 
 1460796587 source:c:\users\asus x202e\documents\github\rubik-s-cube\rubik\cubelet.cpp
 
-1460804080 source:d:\tifani warnita\schools - college\itb\hmif itb\informatics engineering\6th semester\if3260 - computer graphics\assignments\rubik-s-cube\rubik\cube.cpp
+1460944621 source:d:\tifani warnita\schools - college\itb\hmif itb\informatics engineering\6th semester\if3260 - computer graphics\assignments\rubik-s-cube\rubik\cube.cpp
 	"Cube.h"
 	<windows.h>
-	<GL/glut.h>
 	<iostream>
 	<vector>
+	<algorithm>
 
-1460804062 d:\tifani warnita\schools - college\itb\hmif itb\informatics engineering\6th semester\if3260 - computer graphics\assignments\rubik-s-cube\rubik\cube.h
+1460944621 d:\tifani warnita\schools - college\itb\hmif itb\informatics engineering\6th semester\if3260 - computer graphics\assignments\rubik-s-cube\rubik\cube.h
 	"Point3D.h"
 	"Cell.h"
+	<vector>
+	<GL/glut.h>
 
 1460796180 source:d:\tifani warnita\schools - college\itb\hmif itb\informatics engineering\6th semester\if3260 - computer graphics\assignments\rubik-s-cube\rubik\cubelet..c
 
@@ -360,14 +362,22 @@
 1460796180 d:\tifani warnita\schools - college\itb\hmif itb\informatics engineering\6th semester\if3260 - computer graphics\assignments\rubik-s-cube\rubik\cubelet.h
 	"Point3D.h"
 
-1460805464 source:d:\tifani warnita\schools - college\itb\hmif itb\informatics engineering\6th semester\if3260 - computer graphics\assignments\rubik-s-cube\rubik\drawhandler.cpp
+1460944621 source:d:\tifani warnita\schools - college\itb\hmif itb\informatics engineering\6th semester\if3260 - computer graphics\assignments\rubik-s-cube\rubik\drawhandler.cpp
+	"DrawHandler.h"
+	"Point3D.h"
+	"Cell.h"
+	"Cube.h"
+	<vector>
 
 1460890590 c:\users\asus x202e\documents\github\rubik-s-cube\rubik\drawhandler.h
 	<iostream>
 	<windows.h>
 	<GL/glut.h>
 
-1460796180 d:\tifani warnita\schools - college\itb\hmif itb\informatics engineering\6th semester\if3260 - computer graphics\assignments\rubik-s-cube\rubik\drawhandler.h
+1460944621 d:\tifani warnita\schools - college\itb\hmif itb\informatics engineering\6th semester\if3260 - computer graphics\assignments\rubik-s-cube\rubik\drawhandler.h
+	<iostream>
+	<windows.h>
+	<GL/glut.h>
 
 1460931806 source:c:\users\asus x202e\documents\github\rubik-s-cube\rubik\main.cpp
 	<cstdlib>
@@ -375,7 +385,11 @@
 	<GL/glut.h>
 	"DrawHandler.h"
 
-1460804311 source:d:\tifani warnita\schools - college\itb\hmif itb\informatics engineering\6th semester\if3260 - computer graphics\assignments\rubik-s-cube\rubik\main.cpp
+1460944621 source:d:\tifani warnita\schools - college\itb\hmif itb\informatics engineering\6th semester\if3260 - computer graphics\assignments\rubik-s-cube\rubik\main.cpp
+	<cstdlib>
+	<windows.h>
+	<GL/glut.h>
+	"DrawHandler.h"
 
 1460796587 source:c:\users\asus x202e\documents\github\rubik-s-cube\rubik\point3d.cpp
 	"Point3D.h"
