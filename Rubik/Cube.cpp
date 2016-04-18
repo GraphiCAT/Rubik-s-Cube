@@ -131,13 +131,10 @@ void Cube::rotateAll(int axis, int direction) {
     }
   } else {
     for (int i=0;i<=frames;i++) {
-      rotateByAxis(angleCube,axis);
-      angleCube -= degrees_per_frame;
+      rotateByAxis(-degrees_per_frame,axis);
       Sleep(100);
     }
   }
-
-    cout << view[0] << " " << view[1] << " " << view[2] << endl;
 }
 
 void Cube::rotateByAxis(GLfloat angle, int axis) {

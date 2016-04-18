@@ -324,7 +324,7 @@
 	<vector>
 	<algorithm>
 
-1460937278 c:\users\asus x202e\documents\github\rubik-s-cube\rubik\cube.h
+1460937809 c:\users\asus x202e\documents\github\rubik-s-cube\rubik\cube.h
 	"Point3D.h"
 	"Cell.h"
 	<vector>
@@ -352,7 +352,7 @@
 1460796587 c:\users\asus x202e\documents\github\rubik-s-cube\rubik\cubelet.h
 	"Point3D.h"
 
-1460937218 source:c:\users\asus x202e\documents\github\rubik-s-cube\rubik\drawhandler.cpp
+1460937751 source:c:\users\asus x202e\documents\github\rubik-s-cube\rubik\drawhandler.cpp
 	"DrawHandler.h"
 	"Point3D.h"
 	"Cell.h"
