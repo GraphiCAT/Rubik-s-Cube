@@ -58,7 +58,7 @@
 	<vector>
 	<GL/glut.h>
 
-1461549831 source:d:\tifani warnita\schools - college\itb\hmif itb\informatics engineering\6th semester\if3260 - computer graphics\assignments\rubik-s-cube\rubik\cell.cpp
+1461552033 source:d:\tifani warnita\schools - college\itb\hmif itb\informatics engineering\6th semester\if3260 - computer graphics\assignments\rubik-s-cube\rubik\cell.cpp
 	"Cell.h"
 	<windows.h>
 	<GL/glut.h>
@@ -370,7 +370,7 @@
 1460796180 d:\tifani warnita\schools - college\itb\hmif itb\informatics engineering\6th semester\if3260 - computer graphics\assignments\rubik-s-cube\rubik\cubelet.h
 	"Point3D.h"
 
-1461502067 source:d:\tifani warnita\schools - college\itb\hmif itb\informatics engineering\6th semester\if3260 - computer graphics\assignments\rubik-s-cube\rubik\drawhandler.cpp
+1461550495 source:d:\tifani warnita\schools - college\itb\hmif itb\informatics engineering\6th semester\if3260 - computer graphics\assignments\rubik-s-cube\rubik\drawhandler.cpp
 	"DrawHandler.h"
 	"Point3D.h"
 	"Cell.h"
@@ -394,7 +394,7 @@
 	<GL/glut.h>
 	"DrawHandler.h"
 
-1461502067 source:d:\tifani warnita\schools - college\itb\hmif itb\informatics engineering\6th semester\if3260 - computer graphics\assignments\rubik-s-cube\rubik\main.cpp
+1461550593 source:d:\tifani warnita\schools - college\itb\hmif itb\informatics engineering\6th semester\if3260 - computer graphics\assignments\rubik-s-cube\rubik\main.cpp
 	<cstdlib>
 	<windows.h>
 	<GL/glut.h>
