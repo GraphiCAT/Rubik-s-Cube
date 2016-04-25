@@ -3,6 +3,7 @@
 #include <GL/glut.h>  // GLUT, include glu.h and gl.h
 #include <iostream>
 
+
 Cell::Cell(const Cell& c){
     color = c.color;
     location = c.location;
@@ -56,7 +57,7 @@ void Cell::setColor(){
         // glClear( GL_COLOR_BUFFER_BIT );
 
         glEnable( GL_TEXTURE_2D );
-        glBindTexture( GL_TEXTURE_2D, cellTexture );
+        glBindTexture( GL_TEXTURE_2D, cellTexture);
         glEnd();
         // glPushMatrix();
         std::cout << cellTexture << std::endl;
@@ -103,16 +104,17 @@ void Cell::drawCell() {
     glBegin(GL_QUADS);		// Draw The Cube Using quads
 
     if (getFace() == 0) {
-        glColor3f(1.0f,0.0f,0.0f);
+        glColor3f(0.0f,0.0f,0.0f);
         glVertex3f(x+blackspace, y+blackspace, z-blackspace);	// Top Right Of The Quad (Top)
         glVertex3f(x-blackspace, y+blackspace, z-blackspace);	// Top Left Of The Quad (Top)
         glVertex3f(x-blackspace, y+blackspace, z+blackspace);	// Bottom Left Of The Quad (Top)
         glVertex3f(x+blackspace, y+blackspace, z+blackspace);	// Bottom Right Of The Quad (Top)
         glEnd();
 
-        //setColor();
+        setColor();
         glEnable( GL_TEXTURE_2D );
-        glBindTexture( GL_TEXTURE_2D, cellTexture );
+        // glEnable(GL_LIGHTING);
+        glBindTexture( GL_TEXTURE_2D, cellTexture);
         glBegin(GL_QUADS);		// Draw The Cube Using quads
         glTexCoord2f(0.0f, 1.0f); glVertex3f(x-size, y+size, z-size);	// Top Left Of The Quad (Top)
         glTexCoord2f(1.0f, 1.0f); glVertex3f(x+size, y+size, z-size);	// Top Right Of The Quad (Top)
@@ -120,16 +122,19 @@ void Cell::drawCell() {
         glTexCoord2f(0.0f, 0.0f); glVertex3f(x-size, y+size, z+size);	// Bottom Left Of The Quad (Top)
         glEnd();
         glDisable(GL_TEXTURE_2D);
+        // glDisable(GL_LIGHTING);
     } else if (getFace() == 1) {
-        glColor3f(1.0f,0.0f,0.0f);
+        glColor3f(0.0f,0.0f,0.0f);
         glVertex3f(x+blackspace, y-blackspace, z+blackspace);	// Top Right Of The Quad (Bottom)
         glVertex3f(x-blackspace, y-blackspace, z+blackspace);	// Top Left Of The Quad (Bottom)
         glVertex3f(x-blackspace, y-blackspace, z-blackspace);	// Bottom Left Of The Quad (Bottom)
         glVertex3f(x+blackspace, y-blackspace, z-blackspace);	// Bottom Right Of The Quad (Bottom)
         glEnd();
 
+        setColor();
         glEnable( GL_TEXTURE_2D );
-        glBindTexture( GL_TEXTURE_2D, cellTexture );
+        // glEnable(GL_LIGHTING);
+        glBindTexture( GL_TEXTURE_2D, cellTexture);
         glBegin(GL_QUADS);		// Draw The Cube Using quads
         glTexCoord2f(0.0f, 1.0f); glVertex3f(x-size, y-size, z+size);	// Top Left Of The Quad (Bottom)
         glTexCoord2f(1.0f, 1.0f); glVertex3f(x+size, y-size, z+size);	// Top Right Of The Quad (Bottom)
@@ -137,16 +142,19 @@ void Cell::drawCell() {
         glTexCoord2f(0.0f, 0.0f); glVertex3f(x-size, y-size, z-size);	// Bottom Left Of The Quad (Bottom)
         glEnd();
         glDisable(GL_TEXTURE_2D);
+        // glDisable(GL_LIGHTING);
     } else if (getFace() == 2) {
-        glColor3f(1.0f,0.0f,0.0f);
+        glColor3f(0.0f,0.0f,0.0f);
         glVertex3f(x+blackspace-0.2, y+blackspace, z-blackspace);	// Top Right Of The Quad (Right)
         glVertex3f(x+blackspace-0.2, y+blackspace, z+blackspace);	// Top Left Of The Quad (Right)
         glVertex3f(x+blackspace-0.2, y-blackspace, z+blackspace);	// Bottom Left Of The Quad (Right)
         glVertex3f(x+blackspace-0.2, y-blackspace, z-blackspace);	// Bottom Right Of The Quad (Right)
         glEnd();
 
+        setColor();
         glEnable( GL_TEXTURE_2D );
-        glBindTexture( GL_TEXTURE_2D, cellTexture );
+        // glEnable(GL_LIGHTING);
+        glBindTexture( GL_TEXTURE_2D, cellTexture);
         glBegin(GL_QUADS);		// Draw The Cube Using quads
         glTexCoord2f(0.0f, 1.0f); glVertex3f(x+size, y+size, z+size);	// Top Left Of The Quad (Right)
         glTexCoord2f(1.0f, 1.0f); glVertex3f(x+size, y+size, z-size);	// Top Right Of The Quad (Right)
@@ -154,16 +162,19 @@ void Cell::drawCell() {
         glTexCoord2f(0.0f, 0.0f); glVertex3f(x+size, y-size, z+size);	// Bottom Left Of The Quad (Right)
         glEnd();
         glDisable(GL_TEXTURE_2D);
+        // glDisable(GL_LIGHTING);
     } else if (getFace() == 3) {
-        glColor3f(1.0f,0.0f,0.0f);
+        glColor3f(0.0f,0.0f,0.0f);
         glVertex3f(x-blackspace+0.2, y+blackspace, z+blackspace);	// Top Right Of The Quad (Left)
         glVertex3f(x-blackspace+0.2, y+blackspace, z-blackspace);	// Top Left Of The Quad (Left)
         glVertex3f(x-blackspace+0.2, y-blackspace, z-blackspace);	// Bottom Left Of The Quad (Left)
         glVertex3f(x-blackspace+0.2, y-blackspace, z+blackspace);	// Bottom Right Of The Quad (Left)
         glEnd();
 
+        setColor();
         glEnable( GL_TEXTURE_2D );
-        glBindTexture( GL_TEXTURE_2D, cellTexture );
+        // glEnable(GL_LIGHTING);
+        glBindTexture( GL_TEXTURE_2D, cellTexture);
         glBegin(GL_QUADS);		// Draw The Cube Using quads
         glTexCoord2f(0.0f, 1.0f); glVertex3f(x-size, y+size, z-size);	// Top Left Of The Quad (Left)
         glTexCoord2f(1.0f, 1.0f); glVertex3f(x-size, y+size, z+size);	// Top Right Of The Quad (Left)
@@ -171,33 +182,39 @@ void Cell::drawCell() {
         glTexCoord2f(0.0f, 0.0f); glVertex3f(x-size, y-size, z-size);	// Bottom Left Of The Quad (Left)
         glEnd();
         glDisable(GL_TEXTURE_2D);
+        // glDisable(GL_LIGHTING);
     } else if (getFace() == 4) {
-        glColor3f(1.0f,0.0f,0.0f);
+        glColor3f(0.0f,0.0f,0.0f);
         glVertex3f(x+blackspace, y-blackspace, z-blackspace+0.2);	// Top Right Of The Quad (Back)
         glVertex3f(x-blackspace, y-blackspace, z-blackspace+0.2);	// Top Left Of The Quad (Back)
         glVertex3f(x-blackspace, y+blackspace, z-blackspace+0.2);	// Bottom Left Of The Quad (Back)
         glVertex3f(x+blackspace, y+blackspace, z-blackspace+0.2);	// Bottom Right Of The Quad (Back)
         glEnd();
 
+        setColor();
         glEnable( GL_TEXTURE_2D );
-        glBindTexture( GL_TEXTURE_2D, cellTexture );
+        // glEnable(GL_LIGHTING);
+        glBindTexture( GL_TEXTURE_2D, cellTexture);
         glBegin(GL_QUADS);		// Draw The Cube Using quads
-        glTexCoord2f(0.0f, 1.0f); glVertex3f(x-size, y-size, z-size);	// Top Left Of The Quad (Back)
-        glTexCoord2f(1.0f, 1.0f); glVertex3f(x+size, y-size, z-size);	// Top Right Of The Quad (Back)
-        glTexCoord2f(1.0f, 0.0f); glVertex3f(x+size, y+size, z-size);	// Bottom Right Of The Quad (Back)
-        glTexCoord2f(0.0f, 0.0f); glVertex3f(x-size, y+size, z-size);	// Bottom Left Of The Quad (Back)
+        glTexCoord2f(0.0f, 1.0f); glVertex3f(x+size, y+size, z-size); 	// Top Left Of The Quad (Back)
+        glTexCoord2f(1.0f, 1.0f); glVertex3f(x-size, y+size, z-size); 	// Top Right Of The Quad (Back)
+        glTexCoord2f(1.0f, 0.0f); glVertex3f(x-size, y-size, z-size);	// Bottom Right Of The Quad (Back)
+        glTexCoord2f(0.0f, 0.0f); glVertex3f(x+size, y-size, z-size);	// Bottom Left Of The Quad (Back)
         glEnd();
         glDisable(GL_TEXTURE_2D);
+        // glDisable(GL_LIGHTING);
     } else if (getFace() == 5) {
-        glColor3f(1.0f,0.0f,0.0f);
+        glColor3f(0.0f,0.0f,0.0f);
         glVertex3f(x+blackspace, y+blackspace, z+blackspace-0.2);	// Top Right Of The Quad (Front)
         glVertex3f(x-blackspace, y+blackspace, z+blackspace-0.2);	// Top Left Of The Quad (Front)
         glVertex3f(x-blackspace, y-blackspace, z+blackspace-0.2);	// Bottom Left Of The Quad (Front)
         glVertex3f(x+blackspace, y-blackspace, z+blackspace-0.2);	// Bottom Right Of The Quad (Front)
         glEnd();
 
+        setColor();
         glEnable( GL_TEXTURE_2D );
-        glBindTexture( GL_TEXTURE_2D, cellTexture );
+        // glEnable(GL_LIGHTING);
+        glBindTexture( GL_TEXTURE_2D, cellTexture);
         glBegin(GL_QUADS);		// Draw The Cube Using quads
         glTexCoord2f(0.0f, 1.0f); glVertex3f(x-size, y+size, z+size);	// Top Left Of The Quad (Front)
         glTexCoord2f(1.0f, 1.0f); glVertex3f(x+size, y+size, z+size);	// Top Right Of The Quad (Front)
@@ -205,6 +222,7 @@ void Cell::drawCell() {
         glTexCoord2f(0.0f, 0.0f); glVertex3f(x-size, y-size, z+size);	// Bottom Left Of The Quad (Front)
         glEnd();
         glDisable(GL_TEXTURE_2D);
+        // glDisable(GL_LIGHTING);
     }
 }
 
