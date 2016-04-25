@@ -29,7 +29,7 @@ class Cube
         Cell surface[54];
         std::vector<int> faceHistory;
         std::vector<int> directionHistory;
-        bool solve = false;
+        static bool solve;
 
 };
 

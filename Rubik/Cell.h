@@ -9,6 +9,10 @@
 #define ORANGE 4
 #define YELLOW 5
 
+#include <windows.h>  // for MS Windows
+#include <GL/glut.h>  // GLUT, include glu.h and gl.h
+#include <stdio.h>
+
 
 class Cell
 {
@@ -26,12 +30,14 @@ class Cell
         void drawCell();
         void setColor();
         int getFace();
-
+        GLuint LoadTextureRAW( const char * filename, int wrap );
+        void FreeTexture( GLuint texture );
 
     private :
         int color;
         Point3D location;
         Point3D normal;
+        GLuint cellTexture;
 };
 
 #endif // Cell_H

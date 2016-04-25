@@ -1,17 +1,20 @@
 #include "Cell.h"
 #include <windows.h>  // for MS Windows
 #include <GL/glut.h>  // GLUT, include glu.h and gl.h
+#include <iostream>
 
 Cell::Cell(const Cell& c){
     color = c.color;
     location = c.location;
     normal = c.normal;
+    cellTexture = c.cellTexture;
 }
 
 Cell::Cell(int _color, Point3D _location, Point3D _normal){
     color = _color;
     location = _location;
     normal = _normal;
+    cellTexture = LoadTextureRAW( "texture.raw", TRUE );
 }
 
 Cell::~Cell(){
@@ -45,6 +48,18 @@ void Cell::setColor(){
         glColor3f(1.0f,0.0f,0.0f);
     } else if(color == GREEN){
         glColor3f(0.0f,1.0f,0.0f);
+        // glClearColor( 0.0f, 0.0f, 0.0f, 0.0f );
+        // glClear( GL_COLOR_BUFFER_BIT );
+
+        // setup texture mapping
+        // glClearColor( 0.0f, 0.0f, 0.0f, 0.0f );
+        // glClear( GL_COLOR_BUFFER_BIT );
+
+        glEnable( GL_TEXTURE_2D );
+        glBindTexture( GL_TEXTURE_2D, cellTexture );
+        glEnd();
+        // glPushMatrix();
+        std::cout << cellTexture << std::endl;
     } else if(color == WHITE){
         glColor3f(1.0f,1.0f,1.0f);
     } else if(color == BLUE){
@@ -88,90 +103,174 @@ void Cell::drawCell() {
     glBegin(GL_QUADS);		// Draw The Cube Using quads
 
     if (getFace() == 0) {
-        glColor3f(0.0f,0.0f,0.0f);
+        glColor3f(1.0f,0.0f,0.0f);
         glVertex3f(x+blackspace, y+blackspace, z-blackspace);	// Top Right Of The Quad (Top)
         glVertex3f(x-blackspace, y+blackspace, z-blackspace);	// Top Left Of The Quad (Top)
         glVertex3f(x-blackspace, y+blackspace, z+blackspace);	// Bottom Left Of The Quad (Top)
         glVertex3f(x+blackspace, y+blackspace, z+blackspace);	// Bottom Right Of The Quad (Top)
         glEnd();
 
-        setColor();
+        //setColor();
+        glEnable( GL_TEXTURE_2D );
+        glBindTexture( GL_TEXTURE_2D, cellTexture );
         glBegin(GL_QUADS);		// Draw The Cube Using quads
-        glVertex3f(x+size, y+size, z-size);	// Top Right Of The Quad (Top)
-        glVertex3f(x-size, y+size, z-size);	// Top Left Of The Quad (Top)
-        glVertex3f(x-size, y+size, z+size);	// Bottom Left Of The Quad (Top)
-        glVertex3f(x+size, y+size, z+size);	// Bottom Right Of The Quad (Top)
-
+        glTexCoord2d(0.0,0.0); glVertex3f(x-size, y+size, z-size);	// Top Left Of The Quad (Top)
+        glTexCoord2d(1.0,0.0); glVertex3f(x+size, y+size, z-size);	// Top Right Of The Quad (Top)
+        glTexCoord2d(1.0,1.0); glVertex3f(x+size, y+size, z+size);	// Bottom Right Of The Quad (Top)
+        glTexCoord2d(0.0,1.0); glVertex3f(x-size, y+size, z+size);	// Bottom Left Of The Quad (Top)
+        glEnd();
+        glDisable(GL_TEXTURE_2D);
     } else if (getFace() == 1) {
-        glColor3f(0.0f,0.0f,0.0f);
+        glColor3f(1.0f,0.0f,0.0f);
         glVertex3f(x+blackspace, y-blackspace, z+blackspace);	// Top Right Of The Quad (Bottom)
         glVertex3f(x-blackspace, y-blackspace, z+blackspace);	// Top Left Of The Quad (Bottom)
         glVertex3f(x-blackspace, y-blackspace, z-blackspace);	// Bottom Left Of The Quad (Bottom)
         glVertex3f(x+blackspace, y-blackspace, z-blackspace);	// Bottom Right Of The Quad (Bottom)
         glEnd();
 
-        setColor();
+        glEnable( GL_TEXTURE_2D );
+        glBindTexture( GL_TEXTURE_2D, cellTexture );
         glBegin(GL_QUADS);		// Draw The Cube Using quads
-        glVertex3f(x+size, y-size, z+size);	// Top Right Of The Quad (Bottom)
-        glVertex3f(x-size, y-size, z+size);	// Top Left Of The Quad (Bottom)
-        glVertex3f(x-size, y-size, z-size);	// Bottom Left Of The Quad (Bottom)
-        glVertex3f(x+size, y-size, z-size);	// Bottom Right Of The Quad (Bottom)
+        glTexCoord2d(0.0,0.0); glVertex3f(x-size, y-size, z+size);	// Top Left Of The Quad (Bottom)
+        glTexCoord2d(1.0,0.0); glVertex3f(x+size, y-size, z+size);	// Top Right Of The Quad (Bottom)
+        glTexCoord2d(1.0,1.0); glVertex3f(x+size, y-size, z-size);	// Bottom Right Of The Quad (Bottom)
+        glTexCoord2d(0.0,1.0); glVertex3f(x-size, y-size, z-size);	// Bottom Left Of The Quad (Bottom)
+        glEnd();
+        glDisable(GL_TEXTURE_2D);
     } else if (getFace() == 2) {
-        glColor3f(0.0f,0.0f,0.0f);
+        glColor3f(1.0f,0.0f,0.0f);
         glVertex3f(x+blackspace-0.2, y+blackspace, z-blackspace);	// Top Right Of The Quad (Right)
         glVertex3f(x+blackspace-0.2, y+blackspace, z+blackspace);	// Top Left Of The Quad (Right)
         glVertex3f(x+blackspace-0.2, y-blackspace, z+blackspace);	// Bottom Left Of The Quad (Right)
         glVertex3f(x+blackspace-0.2, y-blackspace, z-blackspace);	// Bottom Right Of The Quad (Right)
         glEnd();
 
-        setColor();
+        glEnable( GL_TEXTURE_2D );
+        glBindTexture( GL_TEXTURE_2D, cellTexture );
         glBegin(GL_QUADS);		// Draw The Cube Using quads
-        glVertex3f(x+size, y+size, z-size);	// Top Right Of The Quad (Right)
-        glVertex3f(x+size, y+size, z+size);	// Top Left Of The Quad (Right)
-        glVertex3f(x+size, y-size, z+size);	// Bottom Left Of The Quad (Right)
-        glVertex3f(x+size, y-size, z-size);	// Bottom Right Of The Quad (Right)
+        glTexCoord2d(0.0,0.0); glVertex3f(x+size, y+size, z+size);	// Top Left Of The Quad (Right)
+        glTexCoord2d(1.0,0.0); glVertex3f(x+size, y+size, z-size);	// Top Right Of The Quad (Right)
+        glTexCoord2d(1.0,1.0); glVertex3f(x+size, y-size, z-size);	// Bottom Right Of The Quad (Right)
+        glTexCoord2d(0.0,1.0); glVertex3f(x+size, y-size, z+size);	// Bottom Left Of The Quad (Right)
+        glEnd();
+        glDisable(GL_TEXTURE_2D);
     } else if (getFace() == 3) {
-        glColor3f(0.0f,0.0f,0.0f);
+        glColor3f(1.0f,0.0f,0.0f);
         glVertex3f(x-blackspace+0.2, y+blackspace, z+blackspace);	// Top Right Of The Quad (Left)
         glVertex3f(x-blackspace+0.2, y+blackspace, z-blackspace);	// Top Left Of The Quad (Left)
         glVertex3f(x-blackspace+0.2, y-blackspace, z-blackspace);	// Bottom Left Of The Quad (Left)
         glVertex3f(x-blackspace+0.2, y-blackspace, z+blackspace);	// Bottom Right Of The Quad (Left)
         glEnd();
 
-        setColor();
+        glEnable( GL_TEXTURE_2D );
+        glBindTexture( GL_TEXTURE_2D, cellTexture );
         glBegin(GL_QUADS);		// Draw The Cube Using quads
-        glVertex3f(x-size, y+size, z+size);	// Top Right Of The Quad (Left)
-        glVertex3f(x-size, y+size, z-size);	// Top Left Of The Quad (Left)
-        glVertex3f(x-size, y-size, z-size);	// Bottom Left Of The Quad (Left)
-        glVertex3f(x-size, y-size, z+size);	// Bottom Right Of The Quad (Left)
+        glTexCoord2d(0.0,0.0); glVertex3f(x-size, y+size, z-size);	// Top Left Of The Quad (Left)
+        glTexCoord2d(1.0,0.0); glVertex3f(x-size, y+size, z+size);	// Top Right Of The Quad (Left)
+        glTexCoord2d(1.0,1.0); glVertex3f(x-size, y-size, z+size);	// Bottom Right Of The Quad (Left)
+        glTexCoord2d(0.0,1.0); glVertex3f(x-size, y-size, z-size);	// Bottom Left Of The Quad (Left)
+        glEnd();
+        glDisable(GL_TEXTURE_2D);
     } else if (getFace() == 4) {
-        glColor3f(0.0f,0.0f,0.0f);
+        glColor3f(1.0f,0.0f,0.0f);
         glVertex3f(x+blackspace, y-blackspace, z-blackspace+0.2);	// Top Right Of The Quad (Back)
         glVertex3f(x-blackspace, y-blackspace, z-blackspace+0.2);	// Top Left Of The Quad (Back)
         glVertex3f(x-blackspace, y+blackspace, z-blackspace+0.2);	// Bottom Left Of The Quad (Back)
         glVertex3f(x+blackspace, y+blackspace, z-blackspace+0.2);	// Bottom Right Of The Quad (Back)
         glEnd();
 
-        setColor();
+        glEnable( GL_TEXTURE_2D );
+        glBindTexture( GL_TEXTURE_2D, cellTexture );
         glBegin(GL_QUADS);		// Draw The Cube Using quads
-        glVertex3f(x+size, y-size, z-size);	// Top Right Of The Quad (Back)
-        glVertex3f(x-size, y-size, z-size);	// Top Left Of The Quad (Back)
-        glVertex3f(x-size, y+size, z-size);	// Bottom Left Of The Quad (Back)
-        glVertex3f(x+size, y+size, z-size);	// Bottom Right Of The Quad (Back)
+        glTexCoord2d(0.0,0.0); glVertex3f(x-size, y-size, z-size);	// Top Left Of The Quad (Back)
+        glTexCoord2d(1.0,0.0); glVertex3f(x+size, y-size, z-size);	// Top Right Of The Quad (Back)
+        glTexCoord2d(1.0,1.0); glVertex3f(x+size, y+size, z-size);	// Bottom Right Of The Quad (Back)
+        glTexCoord2d(0.0,1.0); glVertex3f(x-size, y+size, z-size);	// Bottom Left Of The Quad (Back)
+        glEnd();
+        glDisable(GL_TEXTURE_2D);
     } else if (getFace() == 5) {
-        glColor3f(0.0f,0.0f,0.0f);
+        glColor3f(1.0f,0.0f,0.0f);
         glVertex3f(x+blackspace, y+blackspace, z+blackspace-0.2);	// Top Right Of The Quad (Front)
         glVertex3f(x-blackspace, y+blackspace, z+blackspace-0.2);	// Top Left Of The Quad (Front)
         glVertex3f(x-blackspace, y-blackspace, z+blackspace-0.2);	// Bottom Left Of The Quad (Front)
         glVertex3f(x+blackspace, y-blackspace, z+blackspace-0.2);	// Bottom Right Of The Quad (Front)
         glEnd();
 
-        setColor();
+        glEnable( GL_TEXTURE_2D );
+        glBindTexture( GL_TEXTURE_2D, cellTexture );
         glBegin(GL_QUADS);		// Draw The Cube Using quads
-        glVertex3f(x+size, y+size, z+size);	// Top Right Of The Quad (Front)
-        glVertex3f(x-size, y+size, z+size);	// Top Left Of The Quad (Front)
-        glVertex3f(x-size, y-size, z+size);	// Bottom Left Of The Quad (Front)
-        glVertex3f(x+size, y-size, z+size);	// Bottom Right Of The Quad (Front)
+        glTexCoord2d(0.0,0.0); glVertex3f(x-size, y+size, z+size);	// Top Left Of The Quad (Front)
+        glTexCoord2d(1.0,0.0); glVertex3f(x+size, y+size, z+size);	// Top Right Of The Quad (Front)
+        glTexCoord2d(1.0,1.0); glVertex3f(x+size, y-size, z+size);	// Bottom Right Of The Quad (Front)
+        glTexCoord2d(0.0,1.0); glVertex3f(x-size, y-size, z+size);	// Bottom Left Of The Quad (Front)
+        glEnd();
+        glDisable(GL_TEXTURE_2D);
     }
-    glEnd();
 }
+
+// load a 256x256 RGB .RAW file as a texture
+GLuint Cell::LoadTextureRAW( const char * filename, int wrap )
+{
+    std::cout << "LOAD TEXTURE" << std::endl;
+    GLuint texture;
+    int width, height;
+    BYTE * data;
+    FILE * file;
+
+    // open texture data
+    file = fopen( filename, "rb" );
+    if ( file == NULL ) {
+        printf("Image could not be opened\n");
+        return 0;
+    } else {
+         printf("File found\n");
+    }
+
+    // allocate buffer
+    width = 256;
+    height = 256;
+    data = (BYTE*) malloc(width * height * 3);
+
+    // read texture data
+    fread( data, width * height * 3, 1, file );
+    fclose( file );
+
+    // allocate a texture name
+    glGenTextures( 1, &texture );
+
+    // select our current texture
+    glBindTexture( GL_TEXTURE_2D, texture );
+
+    // select modulate to mix texture with color for shading
+    glTexEnvf( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE );
+
+    // when texture area is small, bilinear filter the closest mipmap
+    glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER,
+                     GL_LINEAR_MIPMAP_NEAREST );
+    // when texture area is large, bilinear filter the first mipmap
+    glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
+
+    // if wrap is true, the texture wraps over at the edges (repeat)
+    //       ... false, the texture ends at the edges (clamp)
+    glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S,
+                     wrap ? GL_REPEAT : GL_CLAMP );
+    glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T,
+                     wrap ? GL_REPEAT : GL_CLAMP );
+
+    // build our texture mipmaps
+    gluBuild2DMipmaps( GL_TEXTURE_2D, 3, width, height,
+                       GL_RGB, GL_UNSIGNED_BYTE, data );
+
+    // free buffer
+    free( data );
+
+    return texture;
+}
+
+void Cell::FreeTexture( GLuint texture )
+{
+
+  glDeleteTextures( 1, &texture );
+
+}
+

@@ -22,6 +22,8 @@
 
 using namespace std;
 
+bool Cube::solve = false;
+
 Cube::Cube() {
     Point3D top(0,-1,0);
     Point3D bottom(0,1,0);
