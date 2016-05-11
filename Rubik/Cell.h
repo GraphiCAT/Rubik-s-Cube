@@ -30,14 +30,23 @@ class Cell
         void drawCell();
         void setColor();
         int getFace();
-        GLuint LoadTextureRAW( const char * filename, int wrap );
+        static void initTexture();
+        static GLuint LoadTextureRAW( const char * filename, int wrap );
         void FreeTexture( GLuint texture );
 
     private :
         int color;
         Point3D location;
         Point3D normal;
-        GLuint cellTexture;
+        static GLuint cellTexture;
+        unsigned char * textureSoil;
+        static GLuint texture;
+        static GLuint texture1;
+        static GLuint texture2;
+        static GLuint texture3;
+        static GLuint texture4;
+        static GLuint texture5;
+        static GLuint texture6;
 };
 
 #endif // Cell_H
