@@ -274,45 +274,44 @@ void Cube5::handleRotate(int face, int direction) {
       Sleep(100);
     }
   }
-
 }
 
 vector<int> Cube5::getRotationVector(int face) {
   switch (face) {
     case BOTTOM: {
-      int arr[] = {125,126,127,128,129,95,90,85,80,75,104,103,102,101,100,50,55,60,65,70,0,1,2,3,4,5,6,7,8,9,10,11,13,14,15,16,17,18,19,20,21,22,23,24,12}; //clockwise
+      int arr[] = {0,1,2,3,4,5,6,7,8,18,21,24,36,37,38,27,30,33,45,46,47}; //clockwise
       return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
       } break;
     case TOP: {
-      int arr[] = {149,148,147,146,145,74,69,64,59,54,120,121,122,123,124,99,94,89,84,79,25,26,27,28,29,30,31,32,33,34,35,36,38,39,40,41,42,43,44,45,46,47,48,49,37}; //clockwise
+      int arr[] = {9,10,11,12,13,14,15,16,17,20,23,26,42,43,44,29,32,35,51,52,53}; //clockwise
       return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
       } break;
     case RIGHT: {
-      int arr[] = {2,9,14,19,24,129,134,139,144,149,49,44,39,34,29,124,119,114,109,104,75,76,77,78,79,80,81,82,83,84,85,86,88,89,90,91,92,93,94,95,96,97,98,99}; //clockwise
+      int arr[] = {27,28,29,30,31,32,33,34,35,2,5,8,38,41,44,11,14,17,47,50,53}; //clockwise
       return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
       } break;
     case LEFT: {
-      int arr[] = {50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,125,130,135,140,145,45,40,35,30,25,120,115,110,105,100,20,15,10,5,0}; //clockwise
+      int arr[] = {18,19,20,21,22,23,24,25,26,0,3,6,36,39,42,9,12,15,45,48,51}; //clockwise
       return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
       } break;
     case BACK: {
-      int arr[] = {100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,0,1,2,3,4,75,76,77,78,79,25,26,27,28,29,50,51,52,53,54}; //clockwise
+      int arr[] = {36,37,38,39,40,41,42,43,44,27,28,29,9,10,11,18,19,20,0,1,2}; //clockwise
       return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
       } break;
     case FRONT: {
-      int arr[] = {125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,20,21,22,23,24,95,96,97,98,99,50,51,52,53,54,45,46,47,48,49,70,71,72,73,74}; //clockwise
+      int arr[] = {45,46,47,48,49,50,51,52,53,24,25,26,33,34,35,15,16,17,6,7,8}; //clockwise
       return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
       } break;
     case MIDDLEY: {
-      int arr[] = {135,136,137,138,139,110,111,112,113,114,97,92,87,82,77,72,67,62,57,52}; //clockwise
+      int arr[] = {48,49,50,19,22,25,39,40,41,28,31,34}; //clockwise
       return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
       } break;
     case MIDDLEX: {
-      int arr[] = {127,132,137,142,147,102,107,112,117,122,2,7,12,17,22,27,32,37,42,47}; // clockwise
+      int arr[] = {1,4,7,37,40,43,10,13,16,46,49,52}; // clockwise
       return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
       } break;
     case MIDDLEZ: {
-      int arr[] = {10,11,12,13,14,85,86,87,88,89,39,38,37,36,35,64,63,62,61,60}; //clockwise
+      int arr[] = {3,4,5,21,22,23,12,13,14,30,31,32}; //clockwise
       return vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0]));
       } break;
     default:
@@ -350,7 +349,7 @@ void Cube5::rotateSlice(GLfloat angle, vector<int> rotate, Point3D axis) {
     glPushMatrix();
 
     //Draw cube unrotated
-    for (int i = 0; i < 150; i++) {
+    for (int i = 0; i < 54; i++) {
         if(std::find(rotate.begin(), rotate.end(), i) == rotate.end()) {
             surface[i].drawCell();
         }

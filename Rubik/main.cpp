@@ -26,14 +26,11 @@ int main(int argc, char** argv) {
        std::cout << "Input: ";
        std::cin >> choice;
 
-       glutInitWindowSize(800, 600);
-       glutInitWindowPosition(50, 50);
-       window_1 = glutCreateWindow (argv[0]);
-       glutSetWindowTitle(title);
-
-       Cell::initTexture();
-
        if (choice == '1') { // cube
+           glutInitWindowSize(640, 480);
+           glutInitWindowPosition(50, 50);
+           window_1 = glutCreateWindow (argv[0]);
+           glutSetWindowTitle(title);
            glutDisplayFunc(display_1);
            glutReshapeFunc(reshape_1);
            glutKeyboardFunc(keyPressed);
@@ -41,8 +38,12 @@ int main(int argc, char** argv) {
            initGL();
            glutMainLoop();
        } else if (choice == '2') { // cube
+           glutInitWindowSize(800, 600);
+           glutInitWindowPosition(50, 50);
+           window_1 = glutCreateWindow (argv[0]);
+           glutSetWindowTitle(title);
            glutDisplayFunc(display_2);
-           glutReshapeFunc(reshape_1);
+           glutReshapeFunc(reshape_2);
            glutKeyboardFunc(keyPressed5);
            glutMouseFunc(mouse);
            initGL();

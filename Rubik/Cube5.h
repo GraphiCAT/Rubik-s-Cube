@@ -17,7 +17,6 @@ class Cube5
         void drawCube();
         void handleRotate(int face, int direction);
         void rotateAll(int axis, int direction);
-        void swapColors(std::vector<int> array, int jump);
 
 
     private :
